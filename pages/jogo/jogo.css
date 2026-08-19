@@ -1,0 +1,188 @@
+/* ===== Petrotech - Página Jogo (Oil Panic) ===== */
+:root{
+  --navy:#0b1626;
+  --dark-footer:#080f1d;
+  --purple:#a855f7;
+  --magenta:#d946ef;
+  --cyan:#22d3ee;
+  --text:#0f172a;
+  --muted:#64748b;
+  --line:#e2e8f0;
+  --bg-soft:#eef2f9;
+  --card-dark:#111c33;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Arial,sans-serif;
+  color:var(--text);
+  background:#fff;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+
+/* container único: alinhamento idêntico em TODAS as seções */
+.container{width:100%;max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* ===== NAVBAR ===== */
+.navbar{background:var(--navy);position:sticky;top:0;z-index:50}
+.nav-inner{
+  width:100%;max-width:1200px;margin:0 auto;padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand-icon{
+  width:26px;height:26px;border-radius:7px;display:grid;place-items:center;flex:0 0 26px;
+  background:linear-gradient(135deg,#1a73f0,#38bdf8);
+}
+.brand-name{color:#fff;font-weight:700;font-size:15px;letter-spacing:.6px}
+.nav-links{display:flex;align-items:center;gap:26px}
+.nav-links a{color:#e2e8f0;text-decoration:none;font-size:14px;line-height:1;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-links a.active{color:var(--cyan)}
+.theme-btn{
+  width:32px;height:32px;border-radius:8px;border:none;cursor:pointer;
+  background:#16304f;display:grid;place-items:center;
+}
+
+/* ===== HERO ===== */
+.hero{
+  background:
+    radial-gradient(120% 120% at 20% 30%, rgba(168,85,247,.55) 0%, rgba(168,85,247,0) 55%),
+    radial-gradient(100% 120% at 85% 20%, rgba(217,70,239,.35) 0%, rgba(217,70,239,0) 60%),
+    linear-gradient(135deg,#160a2b 0%,#2b0f52 45%,#120a24 100%);
+  padding:64px 0 72px;
+}
+.hero-content{max-width:720px;margin:0 auto;text-align:center}
+.pill{
+  display:inline-block;border:1px solid rgba(216,180,254,.55);border-radius:999px;
+  padding:8px 20px;font-size:11.5px;color:#e9d5ff;letter-spacing:.2px;
+}
+.hero h1{
+  margin-top:26px;font-size:38px;font-weight:800;color:#fff;line-height:1.15;
+}
+.hero h1 .accent{color:#d8b4fe}
+.hero-tag{margin-top:20px;font-size:14px;color:#e2d6ff}
+.hero-desc{
+  margin:22px auto 0;max-width:600px;font-size:13.5px;line-height:1.7;color:#cbb8e8;
+}
+
+/* ===== SEÇÕES ===== */
+.section{padding:64px 0}
+.section-white{background:#fff}
+.section-soft{background:var(--bg-soft)}
+.section-title{
+  text-align:center;font-size:26px;font-weight:800;color:#0f172a;line-height:1.3;
+}
+.section-sub{text-align:center;font-size:13.5px;color:#475569;margin-top:12px}
+
+/* ===== HISTÓRIA ===== */
+.story-card{
+  max-width:860px;margin:34px auto 0;
+  background:#f8fafc;border:1px solid var(--line);border-radius:14px;
+  padding:34px 36px;
+}
+.story-card p{font-size:12.5px;line-height:1.8;color:#475569}
+.story-card p + p{margin-top:20px}
+.link-accent{color:var(--purple);font-weight:600}
+
+/* ===== OBJETIVOS ===== */
+.goals-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:20px;
+  max-width:900px;margin:34px auto 0;
+}
+.goal-card{
+  display:flex;align-items:flex-start;gap:14px;
+  background:#fff;border:1px solid var(--line);border-radius:12px;
+  padding:20px 22px;transition:transform .2s,box-shadow .2s;
+}
+.goal-card:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(15,23,42,.08)}
+.goal-icon{
+  flex:0 0 32px;width:32px;height:32px;border-radius:9px;
+  background:#f3e8ff;display:grid;place-items:center;
+}
+.goal-text h3{font-size:13.5px;font-weight:700;color:#0f172a;margin-bottom:7px}
+.goal-text p{font-size:11.5px;line-height:1.65;color:#64748b}
+
+/* ===== CAPTURAS ===== */
+.shots-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:26px;
+  max-width:900px;margin:40px auto 0;
+}
+.shot-card{
+  background:var(--card-dark);border:1px solid #1e3a6b;border-radius:12px;
+  overflow:hidden;display:flex;flex-direction:column;
+  transition:transform .2s,box-shadow .2s;
+}
+.shot-card:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(15,23,42,.18)}
+.shot-card img{width:100%;height:190px;object-fit:cover}
+.shot-card figcaption{padding:16px 18px 20px}
+.shot-card h3{font-size:12.5px;font-weight:700;color:#fff;margin-bottom:6px}
+.shot-card p{font-size:10.5px;line-height:1.6;color:#94a3b8}
+
+/* ===== VÍDEO ===== */
+.video-card{
+  max-width:760px;margin:34px auto 0;text-align:center;
+  background:var(--card-dark);border-radius:14px;
+  padding:74px 32px;
+}
+.play-btn{
+  width:52px;height:52px;border-radius:50%;margin:0 auto 20px;
+  background:rgba(168,85,247,.18);display:grid;place-items:center;
+}
+.video-card h3{font-size:16px;font-weight:700;color:#fff}
+.video-card > p{font-size:11.5px;color:#94a3b8;margin-top:8px}
+.video-chip{
+  display:inline-block;margin-top:22px;padding:8px 18px;border-radius:999px;
+  border:1px solid rgba(192,132,252,.5);color:#d8b4fe;font-size:11px;
+}
+
+/* ===== CTA ===== */
+.cta{
+  background:linear-gradient(120deg,#7c1fd4 0%,#a21caf 55%,#c026a8 100%);
+  padding:56px 0;
+}
+.cta-inner{text-align:center;max-width:640px;margin:0 auto}
+.cta-icon{display:grid;place-items:center;margin-bottom:18px}
+.cta-inner h2{font-size:26px;font-weight:800;color:#fff}
+.cta-inner > p{font-size:12.5px;line-height:1.7;color:#f3e0fb;margin-top:14px}
+.btn-play{
+  display:inline-flex;align-items:center;gap:9px;margin-top:24px;
+  background:#fff;color:#7c3aed;text-decoration:none;
+  padding:12px 24px;border-radius:9px;font-size:13px;font-weight:700;
+  transition:transform .2s,box-shadow .2s;
+}
+.btn-play:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.2)}
+.btn-play .arrow{font-size:14px}
+.cta-note{font-size:10.5px;color:#f0d5f8;margin-top:20px}
+
+/* ===== FOOTER ===== */
+.footer{background:var(--dark-footer);padding:52px 0 26px;color:#cbd5e1}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:48px;align-items:start}
+.footer-brand .brand{margin-bottom:16px}
+.footer-desc{font-size:12.5px;line-height:1.7;color:#94a3b8;max-width:320px}
+.footer-socials{display:flex;gap:10px;margin-top:18px}
+.footer-socials a{
+  width:28px;height:28px;border-radius:7px;background:#12203a;
+  display:grid;place-items:center;transition:background .2s;
+}
+.footer-socials a:hover{background:#1c3358}
+.footer-col{display:flex;flex-direction:column;gap:12px}
+.footer-col h4{color:#fff;font-size:13.5px;font-weight:700;margin-bottom:4px}
+.footer-col a{color:#94a3b8;text-decoration:none;font-size:12.5px;transition:color .2s}
+.footer-col a:hover{color:#fff}
+.copyright{text-align:center;font-size:11.5px;color:#64748b;margin-top:44px}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width:900px){
+  .footer-grid{grid-template-columns:1fr;gap:32px}
+  .nav-links{gap:16px;flex-wrap:wrap;justify-content:flex-end}
+  .goals-grid,.shots-grid{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  .hero h1{font-size:29px}
+  .section-title{font-size:21px}
+  .story-card{padding:24px 20px}
+  .video-card{padding:48px 20px}
+}

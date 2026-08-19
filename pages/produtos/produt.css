@@ -1,0 +1,163 @@
+/* ===== Petrotech - Página Produto ===== */
+:root{
+  --dark:#0b1a33;
+  --navy:#0d1b34;
+  --blue:#1a73f0;
+  --cyan:#38bdf8;
+  --text:#0f172a;
+  --muted:#64748b;
+  --line:#e2e8f0;
+  --bg-soft:#f1f5f9;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Arial,sans-serif;
+  color:var(--text);
+  background:#fff;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* ===== NAVBAR ===== */
+.navbar{background:var(--navy);position:sticky;top:0;z-index:50}
+.nav-inner{
+  max-width:1200px;margin:0 auto;padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand-icon{
+  width:26px;height:26px;border-radius:7px;display:grid;place-items:center;
+  background:linear-gradient(135deg,#1a73f0,#38bdf8);
+}
+.brand-name{color:#fff;font-weight:700;font-size:15px;letter-spacing:.5px}
+.nav-links{display:flex;align-items:center;gap:26px}
+.nav-links a{
+  color:#e2e8f0;text-decoration:none;font-size:14px;transition:color .2s;
+}
+.nav-links a:hover{color:#fff}
+.nav-links a.active{color:var(--cyan)}
+.theme-btn{
+  width:32px;height:32px;border-radius:8px;border:none;cursor:pointer;
+  background:#1e3a63;display:grid;place-items:center;
+}
+
+/* ===== HERO ===== */
+.hero{
+  position:relative;height:300px;display:flex;align-items:center;justify-content:center;
+  background:url("img/hero.jpg") center/cover no-repeat;
+}
+.hero-overlay{position:absolute;inset:0;background:rgba(8,20,40,.72)}
+.hero-content{position:relative;text-align:center;padding:0 24px}
+.hero-content h1{color:#fff;font-size:34px;font-weight:800}
+.hero-content h1 .accent{color:var(--cyan)}
+.hero-content p{color:#cbd5e1;font-size:14px;margin-top:10px}
+
+/* ===== DISPOSITIVO ===== */
+.device{padding:80px 0;background:#fff}
+.device-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.device-title{font-size:28px;font-weight:800;margin-bottom:14px}
+.device-text{color:var(--muted);font-size:14px;line-height:1.7;max-width:420px}
+.feature-list{list-style:none;margin-top:28px;display:flex;flex-direction:column;gap:18px}
+.feature-list li{display:flex;gap:14px;align-items:center}
+.feat-icon{width:36px;height:36px;border-radius:9px;display:grid;place-items:center;flex:none}
+.feat-icon.blue{background:#e0efff;color:#1a73f0}
+.feat-icon.indigo{background:#e6e9ff;color:#4f5bd5}
+.feat-icon.green{background:#e2f8ec;color:#12a05c}
+.feat-icon.purple{background:#f3e8ff;color:#9333ea}
+.feature-list strong{display:block;font-size:14px;font-weight:700}
+.feature-list span{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+.device-image{
+  height:340px;border-radius:14px;
+  background:url("img/dispositivo.jpg") center/cover no-repeat,linear-gradient(160deg,#101f3c,#0b1730);
+}
+
+/* ===== COMPONENTES ===== */
+.components{background:#eef2f9;padding:70px 0}
+.section-title{text-align:center;font-size:26px;font-weight:800;margin-bottom:38px}
+.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{
+  background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;
+  box-shadow:0 1px 2px rgba(15,23,42,.04);transition:transform .2s,box-shadow .2s;
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(15,23,42,.08)}
+.card-img{height:110px;background-size:cover;background-position:center;background-color:#f8fafc}
+.img-sensor{background-image:url("img/sensor.jpg")}
+.img-esp32{background-image:url("img/esp32.jpg")}
+.img-leds{background-image:url("img/leds.jpg")}
+.img-fonte{background-image:url("img/fonte.jpg")}
+.img-cabos{background-image:url("img/cabos.jpg")}
+.img-proto{background-image:url("img/protoboard.jpg")}
+.img-bomba{background-image:url("img/bomba.jpg")}
+.img-lcd{background-image:url("img/lcd.jpg")}
+.img-buzzer{background-image:url("img/buzzer.jpg")}
+.card-body{padding:14px 16px 16px}
+.card-body h3{font-size:14px;font-weight:700;margin-bottom:6px}
+.card-body p{font-size:12px;color:var(--muted);line-height:1.6;min-height:48px}
+.card-foot{
+  display:flex;align-items:center;justify-content:space-between;
+  border-top:1px solid var(--line);margin-top:10px;padding-top:10px;
+}
+.card-foot span{font-size:11px;color:#94a3b8}
+.card-foot b{font-size:13px;color:var(--blue)}
+
+/* ===== ORÇAMENTO ===== */
+.budget{background:#fff;padding:70px 0}
+.budget-inner{max-width:900px}
+.table-wrap{border-radius:10px;overflow:hidden;border:1px solid var(--line)}
+.budget-table{width:100%;border-collapse:collapse;font-size:14px}
+.budget-table thead th{
+  background:linear-gradient(90deg,#0ea5e9,#1d4ed8);
+  color:#fff;font-weight:600;font-size:13px;padding:16px 20px;text-align:left;
+}
+.budget-table thead th:nth-child(2){text-align:center}
+.budget-table thead th:nth-child(3){text-align:right}
+.budget-table td{padding:14px 20px;border-bottom:1px solid var(--line);color:#334155}
+.budget-table .center{text-align:center;color:var(--muted)}
+.budget-table .right{text-align:right;font-weight:600}
+.budget-table tfoot td{
+  background:linear-gradient(90deg,#f0f9ff,#eff6ff);
+  font-weight:700;border-bottom:none;
+}
+.budget-table tfoot .total{color:var(--blue);font-size:16px}
+
+/* ===== BENEFÍCIOS ===== */
+.benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.benefit{border-radius:12px;padding:20px}
+.benefit h4{font-size:14px;font-weight:700;margin:10px 0 6px}
+.benefit p{font-size:12px;color:var(--muted);line-height:1.6}
+.b-icon{font-size:20px;font-weight:800;display:inline-block}
+.benefit.green{background:#eefbf3;border:1px solid #d3f0e0;color:#12a05c}
+.benefit.blue{background:#eef4ff;border:1px solid #d9e5ff;color:#2563eb}
+.benefit.pink{background:#fdf0f7;border:1px solid #f6dcec;color:#9333ea}
+
+/* ===== FOOTER ===== */
+.footer{background:var(--dark);color:#cbd5e1;padding:48px 0 0;margin-top:60px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;padding-bottom:36px}
+.footer-brand p{font-size:12px;line-height:1.7;margin-top:14px;max-width:340px;color:#94a3b8}
+.socials{display:flex;gap:10px;margin-top:16px}
+.socials a{
+  width:28px;height:28px;border-radius:7px;background:#16294a;color:#cbd5e1;
+  display:grid;place-items:center;text-decoration:none;font-size:13px;
+}
+.footer-col h5{color:#fff;font-size:13px;font-weight:700;margin-bottom:14px}
+.footer-col a{display:block;color:#94a3b8;font-size:13px;text-decoration:none;margin-bottom:10px}
+.footer-col a:hover{color:#fff}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.08);
+  text-align:center;font-size:11px;color:#94a3b8;padding:18px 0;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width:900px){
+  .device-grid{grid-template-columns:1fr}
+  .cards-grid{grid-template-columns:repeat(2,1fr)}
+  .benefits{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .nav-links{gap:14px;flex-wrap:wrap;justify-content:flex-end}
+}
+@media (max-width:600px){
+  .cards-grid{grid-template-columns:1fr}
+  .hero-content h1{font-size:26px}
+}

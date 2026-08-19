@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Especificações do Produto | Petrotech</title>
+<link rel="stylesheet" href="produt.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-inner">
+      <a class="brand" href="#">
+        <span class="brand-icon">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2">
+            <path d="M12 2 4 5v6c0 5 3.5 9.3 8 11 4.5-1.7 8-6 8-11V5l-8-3z"/>
+          </svg>
+        </span>
+        <span class="brand-name">PETROTECH</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#">Início</a>
+        <a href="#">Instruções</a>
+        <a href="#" class="active">Produto</a>
+        <a href="#">Quem somos</a>
+        <a href="#">Referências</a>
+        <a href="#">Jogo</a>
+        <a href="#">Login</a>
+        <button class="theme-btn" aria-label="Alternar tema">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#cfe2ff" stroke-width="2">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Especificações do <span class="accent">Produto</span></h1>
+      <p>Conheça os componentes e o custo total do Petrotech</p>
+    </div>
+  </section>
+
+  <!-- DISPOSITIVO -->
+  <section class="device">
+    <div class="container device-grid">
+      <div>
+        <h2 class="device-title">Dispositivo Final Montado</h2>
+        <p class="device-text">
+          O Petrotech é um dispositivo compacto e robusto, projetado
+          especificamente para ambientes industriais agressivos. Totalmente
+          selado e protegido contra água, poeira e impactos.
+        </p>
+
+        <ul class="feature-list">
+          <li>
+            <span class="feat-icon blue">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/></svg>
+            </span>
+            <div><strong>Processamento Inteligente</strong><span>ESP32 de última geração</span></div>
+          </li>
+          <li>
+            <span class="feat-icon indigo">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5.5 5.5 0 0 1 7 0"/><circle cx="12" cy="19" r="1"/></svg>
+            </span>
+            <div><strong>Conectividade Dupla</strong><span>WiFi + GSM para máxima confiabilidade</span></div>
+          </li>
+          <li>
+            <span class="feat-icon green">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="17" height="10" rx="2"/><path d="M22 11v2"/></svg>
+            </span>
+            <div><strong>Autonomia Estendida</strong><span>Até 30 dias de operação contínua</span></div>
+          </li>
+          <li>
+            <span class="feat-icon purple">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 12l4-2"/></svg>
+            </span>
+            <div><strong>Alta Precisão</strong><span>Sensor industrial certificado</span></div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="device-image"></div>
+    </div>
+  </section>
+
+  <!-- COMPONENTES -->
+  <section class="components">
+    <div class="container">
+      <h2 class="section-title">Componentes do Sistema</h2>
+
+      <div class="cards-grid">
+        <article class="card">
+          <div class="card-img img-sensor"></div>
+          <div class="card-body">
+            <h3>Sensor de Pressão MPX5700</h3>
+            <p>Sensor de pressão de alta precisão, capaz de medir de 0 a 700 kPa.</p>
+            <div class="card-foot"><span>Valor Unitário</span><b>R$ 90,00</b></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img img-esp32"></div>
+          <div class="card-body">
+            <h3>Microcontrolador ESP32 com Wi-Fi</h3>
+            <p>Processador com WiFi/Bluetooth integrado para transmissão de dados.</p>
+            <div class="card-foot"><span>Valor Unitário</span><b>R$ 35,00</b></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img img-leds"></div>
+          <div class="card-body">
+            <h3>LEDs de status</h3>
+            <p>Indicadores visuais que mostram o estado do sistema (ligado, alerta ou normal).</p>
+            <div class="card-foot"><span>Valor Unitário</span><b>R$ 5,00</b></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img img-fonte"></div>
+          <div class="card-body">
+            <h3>Fonte de alimentação 12V/2A</h3>
+            <p>Converte a energia da tomada para 12V, alimentando o ESP32 e a bomba d'água.</p>
+            <div class="card-foot"><span>Valor Unitário</span><b>R$ 55,00</b></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img img-cabos"></div>
+          <div class="card-body">
+            <h3>Cabos e conectores</h3>
+            <p>Fios jumpers que fazem as ligações elétricas entre todos os componentes.</p>
+            <div class="card-foot"><span>Valor Unitário</span><b>R$ 40,00</b></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img img-proto"></div>
+          <div class="card-body">
+            <h3>Protoboard</h3>
+            <p>Base de ensaio sem solda para montar e testar o circuito do protótipo.</p>
+            <div class="card-foot"><span>Valor Unitário</span><b>R$ 8,00</b></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img img-bomba"></div>
+          <div class="card-body">
+            <h3>Bomba d'água</h3>
+            <p>Motor que bombeia água para simular o fluxo no sistema monitorado.</p>
+            <div class="card-foot"><span>Valor Unitário</span><b>R$ 30,00</b></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img img-lcd"></div>
+          <div class="card-body">
+            <h3>Display LCD</h3>
+            <p>Tela que exibe em tempo real os valores de pressão e alertas do sistema.</p>
+            <div class="card-foot"><span>Valor Unitário</span><b>R$ 30,00</b></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img img-buzzer"></div>
+          <div class="card-body">
+            <h3>Buzzer</h3>
+            <p>Emite sons de alarme quando a pressão ultrapassa os limites seguros.</p>
+            <div class="card-foot"><span>Valor Unitário</span><b>R$ 8,00</b></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORÇAMENTO -->
+  <section class="budget">
+    <div class="container budget-inner">
+      <h2 class="section-title">Orçamento Total do Projeto</h2>
+
+      <div class="table-wrap">
+        <table class="budget-table">
+          <thead>
+            <tr><th>Componente</th><th class="center">Quantidade</th><th class="right">Valor (R$)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Sensor de Pressão MPX5700</td><td class="center">1</td><td class="right">R$ 45.00</td></tr>
+            <tr><td>Microcontrolador ESP32 com Wi-Fi</td><td class="center">2</td><td class="right">R$ 70.00</td></tr>
+            <tr><td>LEDs de status</td><td class="center">10</td><td class="right">R$ 50.00</td></tr>
+            <tr><td>Fonte de alimentação 12V/2A</td><td class="center">1</td><td class="right">R$ 55.00</td></tr>
+            <tr><td>Cabos e conectores</td><td class="center">1</td><td class="right">R$ 40.00</td></tr>
+            <tr><td>Protoboard</td><td class="center">1</td><td class="right">R$ 8.00</td></tr>
+            <tr><td>Bomba d'água</td><td class="center">1</td><td class="right">R$ 30.00</td></tr>
+            <tr><td>Display LCD</td><td class="center">1</td><td class="right">R$ 30.00</td></tr>
+            <tr><td>Buzzer</td><td class="center">4</td><td class="right">R$ 32.00</td></tr>
+          </tbody>
+          <tfoot>
+            <tr><td>Total do Projeto</td><td></td><td class="right total">R$ 360.00</td></tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <div class="benefits">
+        <div class="benefit green">
+          <span class="b-icon">$</span>
+          <h4>Custo Acessível</h4>
+          <p>Investimento baixo comparado aos custos de acidentes industriais</p>
+        </div>
+        <div class="benefit blue">
+          <span class="b-icon">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8l-9-5-9 5v8l9 5 9-5z"/><path d="M3.3 7.3 12 12l8.7-4.7M12 22V12"/></svg>
+          </span>
+          <h4>ROI Rápido</h4>
+          <p>Retorno sobre investimento em menos de 6 meses de operação</p>
+        </div>
+        <div class="benefit pink">
+          <span class="b-icon">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V5M6 11l6-6 6 6"/></svg>
+          </span>
+          <h4>Escalável</h4>
+          <p>Fácil replicação para múltiplas válvulas com custo marginal baixo</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#">
+          <span class="brand-icon">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2"><path d="M12 2 4 5v6c0 5 3.5 9.3 8 11 4.5-1.7 8-6 8-11V5l-8-3z"/></svg>
+          </span>
+          <span class="brand-name">PETROTECH</span>
+        </a>
+        <p>Tecnologia de ponta para monitoramento e controle de válvulas em plataformas petrolíferas, aumentando a segurança operacional e prevenindo acidentes.</p>
+        <div class="socials">
+          <a href="#" aria-label="E-mail">✉</a>
+          <a href="#" aria-label="GitHub">⌗</a>
+          <a href="#" aria-label="Instagram">◎</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Navegação</h5>
+        <a href="#">Início</a>
+        <a href="#">Instruções</a>
+        <a href="#">Produto</a>
+      </div>
+
+      <div class="footer-col">
+        <h5>Institucional</h5>
+        <a href="#">Quem somos</a>
+        <a href="#">Referências</a>
+        <a href="#">Jogo</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Petroil - Trabalho de Conclusão de Curso. Todos os direitos reservados.
+    </div>
+  </footer>
+
+</body>
+</html>
