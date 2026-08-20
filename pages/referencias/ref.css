@@ -48,11 +48,11 @@ img{display:block;max-width:100%}
 .hero{
   position:relative;min-height:280px;
   display:flex;align-items:center;justify-content:center;text-align:center;
-  background:url("img/referencias-hero.jpg") center/cover no-repeat;
+  background:url("/pages/imagens/image\ 33.png") center/cover no-repeat;
 }
 .hero-overlay{position:absolute;inset:0;background:rgba(10,22,45,.72)}
 .hero-content{position:relative;padding:60px 24px;max-width:700px;margin:0 auto}
-.hero-content h1{color:#fff;font-size:36px;font-weight:800;line-height:1.2}
+.hero-content h1{color:#fff;font-size:36px;font-weight:700;line-height:1.2}
 .hero-content h1 .accent{color:#38bdf8}
 .hero-content p{color:#cbd5e1;font-size:14.5px;margin-top:12px;line-height:1.6}
 

@@ -1,47 +1,172 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>HTML + CSS</title>
-    <link rel="stylesheet" href="styles.css" />
-    <a href="pages/instruções/instruções.html">instruçoes </a>
-    <a href="pages/produtos/produt.html">produtos</a>
-    <a href="pages/equipe/equipe.html">equipe</a>
-    <a href="pages/referencias/ref.html">referencias</a>
-    <a href="pages/jogo/jogo.html">jogo</a>
-   
-  </head>
-  <body>
-    <header>PETROTECH</header>
-    <h1>Segurança inteligente para</h1>
-    <h2>Plataformas petrolíferas</h2>
-    <p>
-      Sistema revolucionário de monitoramento de pressão em válvulas que previne
-      acidentes e aumenta a segurança operacional através de alertas em tempo
-      real
-    </p>
-    <button>Saiba Mais</button> <button>Ver Produtos</button>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Petrotech — Segurança inteligente para plataformas petrolíferas</title>
+<meta name="description" content="Sistema de monitoramento de pressão em válvulas que previne acidentes e aumenta a segurança operacional em tempo real." />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
 
-    <section class="estatísticas">
-      <p><strong>85%</strong> Redução dos acidentes</p>
-      <p><strong>Real-Time</strong> Alertas instantâneos</p>
-      <p><strong>24/7</strong>Monitoramento contínuo</p>
-    </section>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="container">
+      <a class="logo" href="#inicio">
+        <span class="logo-icone"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2">
+          <path d="M12 2 4 5v6c0 5 3.5 9.3 8 11 4.5-1.7 8-6 8-11V5l-8-3z"/>
+        </svg></span> PETROTECH
+      </a>
+      <nav>
+        <ul class="menu">
+          <li><a class="ativo" href="#inicio">Início</a></li>
+          <li><a href="pages/instruções/instruções.html">Instruções</a></li>
+          <li><a href="pages/produtos/produt.html">Produto</a></li>
+          <li><a href="pages/equipe/equipe.html">Quem somos</a></li>
+          <li><a href="pages/referencias/ref.html">Referências</a></li>
+          <li><a href="pages/jogo/jogo.html">Jogo</a></li>
+          <li><a href="#login">Login</a></li>
+          <li><button class="btn-tema" aria-label="Alternar tema">🌙</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <section class="Direfenciais">
-      <h2>Diferenciais do projeto</h2>
-      <p>
-        Tecnologia de ponta combinada com facilidade de uso para máxima
-        eficiência operacional
-      </p>
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero-conteudo">
+      <span class="tag">Tecnologia de Monitoramento Inteligente</span>
+      <h1>Segurança inteligente para <span>Plataformas Petrolíferas</span></h1>
+      <p>Sistema revolucionário de monitoramento de pressão em válvulas que previne acidentes e aumenta a segurança operacional através de alertas em tempo real</p>
+      <div class="acoes">
+        <a class="btn btn-primario" href="#diferenciais">Saiba Mais →</a>
+        <a class="btn btn-secundario" href="#produto">Ver Produto</a>
+      </div>
+    </div>
+  </section>
 
-      <p>
-        <strong>Monitoramento Inteligente</strong> Sensores de alta precisão
-        monitoram continuamente a pressão das válvulas, detectando anomalias
-        antes que se tornem críticas
-      </p>
-    </section>
-  </body>
+  <!-- ESTATÍSTICAS -->
+  <section class="estatisticas">
+    <div class="container grade-estatisticas">
+      <article class="card-estatistica">
+        <div class="icone-circulo ic-azul">📉</div>
+        <h3>85%</h3>
+        <p>Redução dos acidentes</p>
+      </article>
+      <article class="card-estatistica">
+        <div class="icone-circulo ic-roxo">🔔</div>
+        <h3>Real-Time</h3>
+        <p>Alertas Instantâneos</p>
+      </article>
+      <article class="card-estatistica">
+        <div class="icone-circulo ic-verde">🛡</div>
+        <h3>24/7</h3>
+        <p>Monitoramento Contínuo</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAIS -->
+  <section class="diferenciais" id="diferenciais">
+    <div class="container">
+      <div class="titulo-secao">
+        <h2>Diferenciais do Projeto</h2>
+        <p>Tecnologia de ponta combinada com facilidade de uso para máxima eficiência operacional</p>
+      </div>
+      <div class="grade-diferenciais">
+        <article class="card">
+          <div class="icone-circulo ic-azul">📈</div>
+          <h3>Monitoramento Inteligente</h3>
+          <p>Sensores de alta precisão monitoram continuamente a pressão das válvulas, detectando anomalias antes que se tornem críticas</p>
+        </article>
+        <article class="card">
+          <div class="icone-circulo ic-roxo">⚠</div>
+          <h3>Alertas Preventivos</h3>
+          <p>Sistema de notificação automática que avisa operadores em tempo real quando pressões anormais são detectadas</p>
+        </article>
+        <article class="card">
+          <div class="icone-circulo ic-verde">🛡</div>
+          <h3>Prevenção de Acidentes</h3>
+          <p>Reduz significativamente o risco de explosões e vazamentos através de intervenção antecipada</p>
+        </article>
+        <article class="card">
+          <div class="icone-circulo ic-lilas">⚡</div>
+          <h3>Fácil Instalação</h3>
+          <p>Dispositivo compacto e de fácil instalação em válvulas existentes, sem necessidade de modificações estruturais</p>
+        </article>
+        <article class="card">
+          <div class="icone-circulo ic-amarelo">✔</div>
+          <h3>Baixo Custo</h3>
+          <p>Solução economicamente viável comparada aos custos de acidentes e paradas de produção</p>
+        </article>
+        <article class="card">
+          <div class="icone-circulo ic-vermelho">🔔</div>
+          <h3>Interface Intuitiva</h3>
+          <p>Dashboard simplificado para visualização de dados e gerenciamento de alertas de forma eficiente</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PÚBLICO-ALVO -->
+  <section class="publico" id="produto">
+    <div class="container">
+      <div class="titulo-secao"><h2>Público-Alvo</h2></div>
+      <div class="grade-publico">
+        <article class="card-publico">
+          <h3>Empresas Petrolíferas</h3>
+          <p>Operadoras de plataformas offshore e onshore que buscam aumentar a segurança operacional e reduzir riscos de acidentes</p>
+        </article>
+        <article class="card-publico">
+          <h3>Equipes de Segurança</h3>
+          <p>Profissionais responsáveis pela manutenção e monitoramento de sistemas críticos em ambientes industriais</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <h2>Pronto(a) para aumentar a segurança?</h2>
+      <p>Conheça mais sobre o ValveGuard AI e descubra como podemos ajudar a proteger suas operações</p>
+      <a class="btn btn-branco" href="#quem-somos">Saiba Mais →</a>
+    </div>
+  </section>
+
+  <!-- RODAPÉ -->
+  <footer class="rodape" id="quem-somos">
+    <div class="container grade-rodape">
+      <div class="rodape-sobre">
+        <a class="logo" href="#inicio"><span class="logo-icone">🛡</span> PETROTECH</a>
+        <p>Tecnologia de ponta para monitoramento e controle de válvulas em plataformas petrolíferas, aumentando a segurança operacional e prevenindo acidentes.</p>
+        <div class="redes">
+          <a href="#" aria-label="E-mail"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#94a3b8" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 6 10 7 10-7"/></svg></a>
+          <a href="#" aria-label="GitHub"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#94a3b8" stroke-width="2"><path d="M9 19c-4 1.5-4-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.3 4.3 0 0 0-.1-3.2s-1-.3-3.4 1.3a11.6 11.6 0 0 0-6 0C6.8 2.8 5.8 3.1 5.8 3.1a4.3 4.3 0 0 0-.1 3.2A4.6 4.6 0 0 0 4.4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#94a3b8" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#instrucoes">Instruções</a></li>
+          <li><a href="#produto">Produto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Institucional</h4>
+        <ul>
+          <li><a href="#quem-somos">Quem somos</a></li>
+          <li><a href="#referencias">Referências</a></li>
+          <li><a href="#jogo">Jogo</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container">
+      <p class="copyright">© 2026 Petrotech · Trabalho de Conclusão de Curso. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+</body>
 </html>

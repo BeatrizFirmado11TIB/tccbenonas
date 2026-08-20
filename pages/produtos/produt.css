@@ -46,11 +46,11 @@ body{
 /* ===== HERO ===== */
 .hero{
   position:relative;height:300px;display:flex;align-items:center;justify-content:center;
-  background:url("img/hero.jpg") center/cover no-repeat;
+  background:url("/pages/imagens/image\ 30.png") center/cover no-repeat;
 }
 .hero-overlay{position:absolute;inset:0;background:rgba(8,20,40,.72)}
 .hero-content{position:relative;text-align:center;padding:0 24px}
-.hero-content h1{color:#fff;font-size:34px;font-weight:800}
+.hero-content h1{color:#fff;font-size:34px;font-weight:700}
 .hero-content h1 .accent{color:var(--cyan)}
 .hero-content p{color:#cbd5e1;font-size:14px;margin-top:10px}
 
@@ -84,14 +84,14 @@ body{
 .card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(15,23,42,.08)}
 .card-img{height:110px;background-size:cover;background-position:center;background-color:#f8fafc}
 .img-sensor{background-image:url("img/sensor.jpg")}
-.img-esp32{background-image:url("img/esp32.jpg")}
-.img-leds{background-image:url("img/leds.jpg")}
+.img-esp32{background-image:url("/pages/imagens/image\ 18.png")}
+.img-leds{background-image:url("/pages/imagens/image\ 17.png")}
 .img-fonte{background-image:url("img/fonte.jpg")}
-.img-cabos{background-image:url("img/cabos.jpg")}
-.img-proto{background-image:url("img/protoboard.jpg")}
-.img-bomba{background-image:url("img/bomba.jpg")}
-.img-lcd{background-image:url("img/lcd.jpg")}
-.img-buzzer{background-image:url("img/buzzer.jpg")}
+.img-cabos{background-image:url("/pages/imagens/image\ 15.png")}
+.img-proto{background-image:url("/pages/imagens/image\ 14.png")}
+.img-bomba{background-image:url("/pages/imagens/image\ 13.png")}
+.img-lcd{background-image:url("/pages/imagens/image\ 12.png")}
+.img-buzzer{background-image:url("/pages/imagens/image\ 11.png")}
 .card-body{padding:14px 16px 16px}
 .card-body h3{font-size:14px;font-weight:700;margin-bottom:6px}
 .card-body p{font-size:12px;color:var(--muted);line-height:1.6;min-height:48px}
