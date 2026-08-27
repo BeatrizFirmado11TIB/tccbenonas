@@ -3,6 +3,7 @@
   --dark:#0b1a33;
   --navy:#0d1b34;
   --blue:#1a73f0;
+  --dark-footer:#080f1d;
   --cyan:#38bdf8;
   --text:#0f172a;
   --muted:#64748b;
@@ -204,7 +205,7 @@ html.dark .benefit.pink{background:#26182f;border-color:#4a2a5c;color:#c99bff}
 html.dark .benefit h4{color:inherit}
 
 /* ===== FOOTER ===== */
-.footer{background:var(--dark);color:#cbd5e1;padding:48px 0 0;margin-top:60px}
+.footer{background:var(--dark-footer);color:#cbd5e1;padding:48px 0 0;margin-top:60px}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;padding-bottom:36px}
 .footer-brand p{font-size:12px;line-height:1.7;margin-top:14px;max-width:340px;color:#94a3b8}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
