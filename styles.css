@@ -5,7 +5,7 @@
   --azul: #1e56d6;
   --azul-escuro: #0b1a33;
   --cyan: #22d3ee;
-
+  --dark-footer:#080f1d;
   --bg-page: #ffffff;
   --bg-nav: #f3f6fb;
   --bg-suave: #eef7fb;
@@ -221,15 +221,19 @@ html.dark .theme-btn .icon-moon { display: block; }
   display: flex; align-items: center; justify-content: center;
   font-size: 20px;
 }
-.ic-azul { background: #d7eefb; color: #1d7fb8; }
-.ic-roxo { background: #e6e9fd; color: #4f5ed8; }
-.ic-verde { background: #dcf5e8; color: #1f9d63; }
+.icone-circulo svg { width: 22px; height: 22px; }
+
+/* cores iguais à imagem 2 */
+.ic-azul  { background: #a5e8ef; color: #1e3a5f; }
+.ic-roxo  { background: #c7d2fe; color: #3b5bdb; }
+.ic-verde { background: #bdf0d3; color: #1f9d63; }
 .ic-lilas { background: #efe4fd; color: #8b5cf6; }
 .ic-amarelo { background: #fdf1d8; color: #c98a12; }
 .ic-vermelho { background: #fde2e2; color: #e05a5a; }
-html.dark .ic-azul { background: #123449; }
-html.dark .ic-roxo { background: #23264a; }
-html.dark .ic-verde { background: #13392a; }
+
+html.dark .ic-azul  { background: #123449; color: #7fe3ee; }
+html.dark .ic-roxo  { background: #23264a; color: #a5b4fc; }
+html.dark .ic-verde { background: #13392a; color: #6ee7b7; }
 html.dark .ic-lilas { background: #2c2144; }
 html.dark .ic-amarelo { background: #3d3117; }
 html.dark .ic-vermelho { background: #431f1f; }
@@ -288,24 +292,28 @@ html.dark .ic-vermelho { background: #431f1f; }
 .cta h2 { color: #fff; font-size: 30px; font-weight: 800; }
 .cta p { color: #dbeafe; font-size: 14px; margin: 14px auto 30px; max-width: 460px; }
 
-/* ================= FOOTER ================= */
-.footer { background: var(--footer-bg); color: #cbd5e1; padding: 48px 0 0; margin-top: 60px; }
-.footer .logo-text { color: #fff; }
-.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; padding-bottom: 36px; }
-.footer-brand p { font-size: 12px; line-height: 1.7; margin-top: 14px; max-width: 340px; color: var(--footer-text); }
-.socials { display: flex; gap: 10px; margin-top: 16px; }
-.socials a {
-  width: 28px; height: 28px; border-radius: 7px;
-  background: var(--footer-social); color: #cbd5e1;
-  display: grid; place-items: center; text-decoration: none; font-size: 13px;
+/* ================= FOOTER (padrão igual ao jogo) ================= */
+.footer { background: var(--dark-footer); color: #cbd5e1; padding: 52px 0 26px; margin-top: 60px; }
+.footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 48px; align-items: start; }
+.footer .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.footer .brand-icon {
+  width: 26px; height: 26px; border-radius: 7px; display: grid; place-items: center; flex: 0 0 26px;
+  background: linear-gradient(135deg, #1a73f0, #38bdf8);
 }
-.footer-col h5 { color: #fff; font-size: 13px; font-weight: 700; margin-bottom: 14px; }
-.footer-col a { display: block; color: var(--footer-text); font-size: 13px; text-decoration: none; margin-bottom: 10px; }
+.footer .brand-name { color: #fff; font-weight: 700; font-size: 15px; letter-spacing: .6px; }
+.footer-brand .brand { margin-bottom: 16px; }
+.footer-desc { font-size: 12.5px; line-height: 1.7; color: var(--footer-text); max-width: 320px; }
+.footer-socials { display: flex; gap: 10px; margin-top: 18px; }
+.footer-socials a {
+  width: 28px; height: 28px; border-radius: 7px; background: var(--footer-social);
+  display: grid; place-items: center; transition: background .2s;
+}
+.footer-socials a:hover { background: #1c3358; }
+.footer-col { display: flex; flex-direction: column; gap: 12px; }
+.footer-col h4 { color: #fff; font-size: 13.5px; font-weight: 700; margin-bottom: 4px; }
+.footer-col a { color: var(--footer-text); text-decoration: none; font-size: 12.5px; transition: color .2s; }
 .footer-col a:hover { color: #fff; }
-.footer-bottom {
-  border-top: 1px solid rgba(255,255,255,.08);
-  text-align: center; font-size: 11px; color: var(--footer-text); padding: 18px 0;
-}
+.copyright { text-align: center; font-size: 11.5px; color: var(--footer-text); margin-top: 44px; border-top: 1px solid rgba(255,255,255,.08); padding-top: 22px; }
 
 /* ================= RESPONSIVO ================= */
 @media (max-width: 900px) {

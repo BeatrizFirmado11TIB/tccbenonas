@@ -123,19 +123,24 @@ html.dark .hero-overlay{background:rgba(4,10,20,.82)}
 .device-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
 .device-title{font-size:28px;font-weight:800;margin-bottom:14px;color:var(--text)}
 .device-text{color:var(--muted);font-size:14px;line-height:1.7;max-width:420px}
-.feature-list{list-style:none;margin-top:28px;display:flex;flex-direction:column;gap:18px}
-.feature-list li{display:flex;gap:14px;align-items:center}
-.feat-icon{width:36px;height:36px;border-radius:9px;display:grid;place-items:center;flex:none}
-.feat-icon.blue{background:#e0efff;color:#1a73f0}
-.feat-icon.indigo{background:#e6e9ff;color:#4f5bd5}
-.feat-icon.green{background:#e2f8ec;color:#12a05c}
-.feat-icon.purple{background:#f3e8ff;color:#9333ea}
-html.dark .feat-icon.blue{background:#12314f;color:#7db8ff}
+.feature-list{list-style:none;margin-top:28px;display:flex;flex-direction:column;gap:22px}
+.feature-list li{display:flex;gap:16px;align-items:center}
+.feat-icon{
+  width:48px;height:48px;border-radius:12px;
+  display:inline-flex;align-items:center;justify-content:center;
+  flex:0 0 48px;line-height:0;
+}
+.feat-icon svg{display:block;width:22px;height:22px}
+.feat-icon.blue{background:#d6ecfd;color:#0e9bd8}
+.feat-icon.indigo{background:#dfe4fb;color:#5b6ee0}
+.feat-icon.green{background:#c9f5dd;color:#12b981}
+.feat-icon.purple{background:#eddcfb;color:#a855f7}
+html.dark .feat-icon.blue{background:#12314f;color:#7dd3fc}
 html.dark .feat-icon.indigo{background:#20244a;color:#a3aaff}
-html.dark .feat-icon.green{background:#14382a;color:#59d99b}
-html.dark .feat-icon.purple{background:#2c1f45;color:#c99bff}
-.feature-list strong{display:block;font-size:14px;font-weight:700;color:var(--text)}
-.feature-list span{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+html.dark .feat-icon.green{background:#14382a;color:#6ee7b7}
+html.dark .feat-icon.purple{background:#2c1f45;color:#d8b4fe}
+.feature-list div strong{display:block;font-size:16px;font-weight:800;color:var(--text);line-height:1.25}
+.feature-list div span{display:block;font-size:13px;color:var(--muted);margin-top:2px}
 .device-image{
   height:340px;border-radius:14px;
   background:url("img/dispositivo.jpg") center/cover no-repeat,linear-gradient(160deg,#101f3c,#0b1730);
