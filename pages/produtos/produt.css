@@ -241,6 +241,28 @@ html.dark .benefit h4{color:inherit}
   .nav-links{position:static;left:auto;transform:none;gap:14px;flex-wrap:wrap;justify-content:flex-end}
 }
 @media (max-width:600px){
+  .nav-inner{
+    padding:14px 16px;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px 16px;
+  }
+  .logo{order:1}
+  .theme-btn{order:2}
+  .nav-links{
+    order:3;
+    width:100%;
+    position:static;
+    left:auto;
+    transform:none;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:flex-start;
+    align-items:center;
+    gap:16px 28px;
+  }
   .cards-grid{grid-template-columns:1fr}
   .hero-content h1{font-size:26px}
 }
