@@ -194,7 +194,6 @@ html.dark .benefit.blue{background:#050D23;border-color:#25406b;color:#7db8ff}
 html.dark .benefit.pink{background:#0E0724;border-color:#4a2a5c;color:#c99bff}
 html.dark .benefit h4{color:inherit}
 
-/* ===== FOOTER ===== */
 .footer{background:var(--dark-footer);color:#cbd5e1;padding:48px 0 0;margin-top:60px}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;padding-bottom:36px}
 .footer-brand p{font-size:12px;line-height:1.7;margin-top:14px;max-width:340px;color:#94a3b8}
@@ -217,7 +216,6 @@ html.dark .benefit h4{color:inherit}
   text-align:center;font-size:11px;color:#94a3b8;padding:18px 0;
 }
 
-/* ===== RESPONSIVO ===== */
 @media (max-width:900px){
   .device-grid{grid-template-columns:1fr}
   .cards-grid{grid-template-columns:repeat(2,1fr)}
@@ -226,7 +224,6 @@ html.dark .benefit h4{color:inherit}
   .nav-links{position:static;left:auto;transform:none;gap:14px;flex-wrap:wrap;justify-content:flex-end}
 }
 @media (max-width:600px){
-  /* MENU MOBILE: identico ao index (styles.css) */
   .nav-inner{
     flex-wrap:wrap;
     gap:10px 14px;
@@ -246,7 +243,6 @@ html.dark .benefit h4{color:inherit}
   }
   .nav-links a{font-size:13px}
   .theme-btn{margin-left:auto}
-  /* ===== ORÇAMENTO MOBILE: tabela inteira sem rolagem ===== */
   .budget{padding:44px 0}
   .budget-inner{max-width:100%}
   .budget .container{padding:0 16px}
