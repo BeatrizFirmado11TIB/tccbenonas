@@ -1,4 +1,3 @@
-/* ================= BASE (MODO CLARO) ================= */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
@@ -15,25 +14,20 @@
   --borda: #e5e7eb;
   --sombra: 0 2px 10px rgba(15,23,42,.05);
   --sombra-hover: 0 12px 26px rgba(15,23,42,.08);
-
   --texto: #1f2937;
   --titulo: #0b1a33;
   --texto-claro: #6b7280;
   --nav-link: #2b3442;
   --theme-btn-bg: #e2e9f5;
-
   --hero-overlay-1: rgba(11,18,32,.55);
   --hero-overlay-2: rgba(11,18,32,.70);
-
   --footer-bg: #0b1a33;
   --footer-text: #94a3b8;
   --footer-social: #16294a;
-
   --branco: #ffffff;
   --radius: 12px;
 }
 
-/* ================= MODO ESCURO ================= */
 html.dark {
   --bg-page: #1c2129;
   --bg-nav: #0b1422;
@@ -44,16 +38,13 @@ html.dark {
   --borda: #2f3743;
   --sombra: 0 2px 10px rgba(0,0,0,.35);
   --sombra-hover: 0 14px 30px rgba(0,0,0,.45);
-
   --texto: #e7ecf3;
   --titulo: #ffffff;
   --texto-claro: #98a1ad;
   --nav-link: #e7ecf3;
   --theme-btn-bg: #16263d;
-
   --hero-overlay-1: rgba(6,10,18,.72);
   --hero-overlay-2: rgba(6,10,18,.85);
-
   --footer-bg: #070c14;
   --footer-text: #8a94a3;
   --footer-social: #12203a;
@@ -72,7 +63,6 @@ body {
 
 .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
 
-/* ================= NAVBAR (igual login/cadastro) ================= */
 .navbar {
   background: var(--bg-nav);
   position: sticky;
@@ -141,7 +131,6 @@ body {
 html.dark .theme-btn .icon-sun { display: none; }
 html.dark .theme-btn .icon-moon { display: block; }
 
-/* ================= HERO ================= */
 .hero {
   position: relative;
   min-height: 520px;
@@ -203,7 +192,6 @@ html.dark .theme-btn .icon-moon { display: block; }
 .btn-secundario { background: #0b3b8c; color: #fff; }
 .btn-branco { background: #fff; color: var(--azul); }
 
-/* ================= ESTATÍSTICAS ================= */
 .estatisticas { background: var(--bg-suave); padding: 60px 0; }
 .grade-estatisticas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
 .card-estatistica {
@@ -223,17 +211,16 @@ html.dark .theme-btn .icon-moon { display: block; }
 }
 .icone-circulo svg { width: 22px; height: 22px; }
 
-/* cores iguais à imagem 2 */
-.ic-azul  { background: #a5e8ef; color: #1e3a5f; }
-.ic-roxo  { background: #c7d2fe; color: #3b5bdb; }
-.ic-verde { background: #bdf0d3; color: #1f9d63; }
-.ic-lilas { background: #efe4fd; color: #8b5cf6; }
-.ic-amarelo { background: #fdf1d8; color: #c98a12; }
-.ic-vermelho { background: #fde2e2; color: #e05a5a; }
+.ic-azul  { background: #BBE9F0; color: #00B8DA; }
+.ic-roxo  { background: #D4E5FF; color: #2A7BF8; }
+.ic-verde { background: #D8FFE7; color: #00C850; }
+.ic-lilas { background: #E7C9FF; color: #AD46FE; }
+.ic-amarelo { background: #FFEADB; color: #FE6800; }
+.ic-vermelho { background: #EFC3C5; color: #FA2C36; }
 
-html.dark .ic-azul  { background: #123449; color: #7fe3ee; }
-html.dark .ic-roxo  { background: #23264a; color: #a5b4fc; }
-html.dark .ic-verde { background: #13392a; color: #6ee7b7; }
+html.dark .ic-azul  { background: #19374C; color: #00B8DA; }
+html.dark .ic-roxo  { background: #1D304E; color: #2A7BF8; }
+html.dark .ic-verde { background: #17343A; color: #00C850; }
 html.dark .ic-lilas { background: #2c2144; }
 html.dark .ic-amarelo { background: #3d3117; }
 html.dark .ic-vermelho { background: #431f1f; }
@@ -241,7 +228,6 @@ html.dark .ic-vermelho { background: #431f1f; }
 .card-estatistica h3 { font-size: 28px; font-weight: 800; color: var(--titulo); }
 .card-estatistica p { font-size: 13px; color: var(--texto-claro); margin-top: 4px; }
 
-/* ================= DIFERENCIAIS ================= */
 .diferenciais { padding: 80px 0; background: var(--bg-page); }
 .titulo-secao { text-align: center; margin-bottom: 48px; }
 .titulo-secao h2 { font-size: 30px; font-weight: 800; color: var(--titulo); }
@@ -264,7 +250,6 @@ html.dark .ic-vermelho { background: #431f1f; }
 .card h3 { font-size: 16px; font-weight: 700; color: var(--titulo); margin-bottom: 10px; }
 .card p { font-size: 13px; color: var(--texto-claro); }
 
-/* ================= PÚBLICO-ALVO ================= */
 .publico { background: var(--bg-publico); padding: 70px 0; }
 .grade-publico {
   display: grid;
@@ -283,7 +268,6 @@ html.dark .ic-vermelho { background: #431f1f; }
 .card-publico h3 { font-size: 15px; font-weight: 700; color: var(--titulo); margin-bottom: 10px; }
 .card-publico p { font-size: 13px; color: var(--texto-claro); }
 
-/* ================= CTA ================= */
 .cta {
   background: linear-gradient(90deg, #0e7c9c, #1d3fd1);
   padding: 80px 0;
@@ -292,7 +276,6 @@ html.dark .ic-vermelho { background: #431f1f; }
 .cta h2 { color: #fff; font-size: 30px; font-weight: 800; }
 .cta p { color: #dbeafe; font-size: 14px; margin: 14px auto 30px; max-width: 460px; }
 
-/* ================= FOOTER (padrão igual ao jogo) ================= */
 .footer { background: var(--dark-footer); color: #cbd5e1; padding: 52px 0 26px; margin-top: 60px; }
 .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 48px; align-items: start; }
 .footer .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
@@ -315,7 +298,6 @@ html.dark .ic-vermelho { background: #431f1f; }
 .footer-col a:hover { color: #fff; }
 .copyright { text-align: center; font-size: 11.5px; color: var(--footer-text); margin-top: 44px; border-top: 1px solid rgba(255,255,255,.08); padding-top: 22px; }
 
-/* ================= RESPONSIVO ================= */
 @media (max-width: 900px) {
   .grade-estatisticas, .grade-diferenciais { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -323,7 +305,6 @@ html.dark .ic-vermelho { background: #431f1f; }
   .nav-links { gap: 16px; }
 }
 @media (max-width: 600px) {
-  /* MENU MOBILE: mostra todas as paginas, sem esconder nada */
   .nav-inner {
     flex-wrap: wrap;
     gap: 10px 14px;

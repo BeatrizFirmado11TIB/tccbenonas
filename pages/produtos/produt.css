@@ -159,7 +159,7 @@ html.dark .feat-icon.purple{background:#2c1f45;color:#d8b4fe}
 .img-sensor{background-image:url("/pages/imagens/image\ 19.png")}
 .img-esp32{background-image:url("/pages/imagens/image\ 18.png")}
 .img-leds{background-image:url("/pages/imagens/image\ 17.png")}
-.img-fonte{background-image:url("img/fonte.jpg")}
+.img-fonte{background-image:url("/pages/imagens/image\ 16.png")}
 .img-cabos{background-image:url("/pages/imagens/image\ 15.png")}
 .img-proto{background-image:url("/pages/imagens/image\ 14.png")}
 .img-bomba{background-image:url("/pages/imagens/image\ 13.png")}
@@ -241,28 +241,58 @@ html.dark .benefit h4{color:inherit}
   .nav-links{position:static;left:auto;transform:none;gap:14px;flex-wrap:wrap;justify-content:flex-end}
 }
 @media (max-width:600px){
+  /* MENU MOBILE: identico ao index (styles.css) */
   .nav-inner{
-    padding:14px 16px;
-    display:flex;
     flex-wrap:wrap;
-    align-items:center;
-    justify-content:space-between;
-    gap:14px 16px;
+    gap:10px 14px;
+    padding:12px 16px;
   }
-  .logo{order:1}
-  .theme-btn{order:2}
   .nav-links{
-    order:3;
-    width:100%;
     position:static;
     left:auto;
     transform:none;
+    order:3;
+    width:100%;
     display:flex;
     flex-wrap:wrap;
     justify-content:flex-start;
     align-items:center;
-    gap:16px 28px;
+    gap:8px 18px;
   }
+  .nav-links a{font-size:13px}
+  .theme-btn{margin-left:auto}
+  /* ===== ORÇAMENTO MOBILE: tabela inteira sem rolagem ===== */
+  .budget{padding:44px 0}
+  .budget-inner{max-width:100%}
+  .budget .container{padding:0 16px}
+  .section-title{font-size:22px;margin-bottom:24px}
+  .table-wrap{overflow:visible}
+  .budget-table{
+    width:100%;
+    table-layout:fixed;
+    font-size:12px;
+  }
+  .budget-table thead th{
+    padding:12px 8px;
+    font-size:11px;
+    white-space:normal;
+    word-break:break-word;
+  }
+  .budget-table td{
+    padding:12px 8px;
+    font-size:12px;
+    line-height:1.4;
+    word-break:break-word;
+  }
+  .budget-table th:nth-child(1),
+  .budget-table td:nth-child(1){width:48%}
+  .budget-table th:nth-child(2),
+  .budget-table td:nth-child(2){width:24%}
+  .budget-table th:nth-child(3),
+  .budget-table td:nth-child(3){width:28%}
+  .budget-table .right{font-size:12px;white-space:nowrap}
+  .budget-table tfoot td{padding:14px 8px;font-size:12px}
+  .budget-table tfoot .total{font-size:14px;white-space:nowrap}
   .cards-grid{grid-template-columns:1fr}
   .hero-content h1{font-size:26px}
 }
