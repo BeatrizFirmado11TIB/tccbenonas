@@ -55,7 +55,7 @@ body, .navbar, .card, .card-estatistica, .card-publico, .estatisticas, .publico,
 }
 
 body {
-  font-family: "Poppins", "Inter", "Segoe UI", Arial, sans-serif;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
   color: var(--texto);
   background: var(--bg-page);
   line-height: 1.5;
