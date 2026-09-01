@@ -172,7 +172,8 @@ html.dark .feat-icon.purple{background:#2c1f45;color:#d8b4fe}
 .budget-table thead th:nth-child(2){text-align:center}
 .budget-table thead th:nth-child(3){text-align:right}
 .budget-table td{padding:14px 20px;border-bottom:1px solid var(--line);color:var(--table-text)}
-.budget-table .center{text-align:center;color:#fff}
+.budget-table .center{text-align:center; color: var(--muted);}
+.html-table  .center {text-align:center;color:#fff}
 .budget-table .right{text-align:right;font-weight:600}
 .budget-table tfoot td{
   background:var(--table-foot);
