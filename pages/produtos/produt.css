@@ -133,7 +133,6 @@ html.dark .feat-icon.purple{background:#2c1f45;color:#d8b4fe}
   background:url("img/dispositivo.jpg") center/cover no-repeat,linear-gradient(160deg,#101f3c,#0b1730);
 }
 
-/* ===== COMPONENTES ===== */
 .components{background:var(--bg-section);padding:70px 0}
 .section-title{text-align:center;font-size:26px;font-weight:800;margin-bottom:38px;color:var(--text)}
 .cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
@@ -162,7 +161,6 @@ html.dark .feat-icon.purple{background:#2c1f45;color:#d8b4fe}
 .card-foot span{font-size:11px;color:var(--foot-note)}
 .card-foot b{font-size:13px;color:var(--blue)}
 
-/* ===== ORÇAMENTO ===== */
 .budget{background:var(--bg);padding:70px 0}
 .budget-inner{max-width:900px}
 .table-wrap{border-radius:10px;overflow:hidden;border:1px solid var(--line)}
@@ -174,7 +172,7 @@ html.dark .feat-icon.purple{background:#2c1f45;color:#d8b4fe}
 .budget-table thead th:nth-child(2){text-align:center}
 .budget-table thead th:nth-child(3){text-align:right}
 .budget-table td{padding:14px 20px;border-bottom:1px solid var(--line);color:var(--table-text)}
-.budget-table .center{text-align:center;color:var(--muted)}
+.budget-table .center{text-align:center;color:#fff}
 .budget-table .right{text-align:right;font-weight:600}
 .budget-table tfoot td{
   background:var(--table-foot);
