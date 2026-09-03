@@ -165,14 +165,18 @@ html.dark .feat-icon.purple{background:#2c1f45;color:#d8b4fe}
 .budget-inner{max-width:900px}
 .table-wrap{border-radius:10px;overflow:hidden;border:1px solid var(--line)}
 .budget-table{width:100%;border-collapse:collapse;font-size:14px;background:var(--card-bg)}
-.budget-table thead th{
+.budget-table thead{
   background:linear-gradient(90deg,#0ea5e9,#1d4ed8);
+}
+.budget-table thead th{
+  background:transparent;
   color:#fff;font-weight:600;font-size:13px;padding:16px 20px;text-align:left;
 }
 .budget-table thead th:nth-child(2){text-align:center}
 .budget-table thead th:nth-child(3){text-align:right}
 .budget-table td{padding:14px 20px;border-bottom:1px solid var(--line);color:var(--table-text)}
 .budget-table .center{text-align:center; color: var(--muted);}
+.budget-table thead th.center{color:#fff;}
 .html-table  .center {text-align:center;color:#fff}
 .budget-table .right{text-align:right;font-weight:600}
 .budget-table tfoot td{
@@ -254,7 +258,10 @@ html.dark .benefit h4{color:inherit}
     table-layout:fixed;
     font-size:12px;
   }
-  .budget-table thead th{
+  .budget-table thead{
+  background:linear-gradient(90deg,#0ea5e9,#1d4ed8);
+}
+.budget-table thead th{ background:transparent;
     padding:12px 8px;
     font-size:11px;
     white-space:normal;
