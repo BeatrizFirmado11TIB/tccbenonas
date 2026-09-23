@@ -242,13 +242,20 @@ html.dark .ic-vermelho { background: #431f1f; }
   background: var(--card-grad);
   border: 1px solid var(--borda);
   border-radius: var(--radius);
-  padding: 26px 22px;
+  padding: 0 0 26px;
+  overflow: hidden;
   transition: box-shadow .2s, transform .2s;
 }
 .card:hover { box-shadow: var(--sombra-hover); transform: translateY(-3px); }
-.card .icone-circulo { margin: 0 0 18px; border-radius: 10px; }
-.card h3 { font-size: 16px; font-weight: 700; color: var(--titulo); margin-bottom: 10px; }
-.card p { font-size: 13px; color: var(--texto-claro); }
+.card-imagem {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2.55 / 1;
+  object-fit: cover;
+  margin-bottom: 18px;
+}
+.card h3 { font-size: 16px; font-weight: 700; color: var(--titulo); margin: 0 22px 10px; }
+.card p { font-size: 13px; color: var(--texto-claro); margin: 0 22px; }
 
 .publico { background: var(--bg-publico); padding: 70px 0; }
 .grade-publico {
