@@ -1,41 +1,44 @@
-const button = document.querySelector("button")
+const formulario = document.querySelector("#formLogin");
 
-button.onclick = (event) => {
-    event.preventDefault()
-    login()
-}
+formulario.addEventListener("submit", async (event) => {
+    event.preventDefault();
 
-async function login(){
-    const email = document.querySelector("#email").value
-    const password = document.querySelector("#senha").value
-
-    const user = { email, password }
+    const username = document.querySelector("#username").value;
+    const senha = document.querySelector("#senha").value;
 
     try {
-        let response = await fetch("https://edutec-backend-liard.vercel.app/login", {
+        const resposta = await fetch("http://localhost:3000/login", {
             method: "POST",
+
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ user })
-        })
 
-        response = await response.json()
+            body: JSON.stringify({
+                username,
+                senha
+            })
+        });
 
-        // mensagem de erro do backend?
-        if (response.message) {
-            alert(response.message)
-            return
+        const dados = await resposta.json();
+
+        if (!resposta.ok) {
+            alert(dados.mensagem);
+            return;
         }
 
-        // Salva sessão
-        sessionStorage.setItem("user", JSON.stringify(response))
+        // Guarda os dados do usuário
+        localStorage.setItem(
+            "usuario",
+            JSON.stringify(dados.usuario)
+        );
 
-        alert("Login realizado com sucesso!")
-        window.location.href = "../../index.html"
+        alert("Login realizado com sucesso!");
 
-    } catch (err) {
-        console.log(err)
-        alert("Erro ao conectar ao servidor")
+        window.location.href = "../index.html";
+
+    } catch (erro) {
+        console.error(erro);
+        alert("Não foi possível conectar ao servidor.");
     }
-}
+});

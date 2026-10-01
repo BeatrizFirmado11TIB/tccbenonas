@@ -1,30 +1,44 @@
-const button = document.querySelector("button")
-button.onclick = (event) => {
-    event.preventDefault()
-    sendUser()
-}
+const formulario = document.querySelector("#formCadastro");
 
-async function sendUser(){
-    const name = document.querySelector("#nome").value
-    const email = document.querySelector("#email").value
-    const password = document.querySelector("#senha").value
+formulario.addEventListener("submit", async (event) => {
+    event.preventDefault();
 
-    const user = {
-        name,
-        email,
-        password
+    const username = document.querySelector("#username").value;
+    const nome = document.querySelector("#nome").value;
+    const sobrenome = document.querySelector("#sobrenome").value;
+    const email = document.querySelector("#email").value;
+    const senha = document.querySelector("#senha").value;
 
+    try {
+        const resposta = await fetch("http://localhost:3000/cadastro", {
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                username,
+                nome,
+                sobrenome,
+                email,
+                senha
+            })
+        });
+
+        const dados = await resposta.json();
+
+        if (!resposta.ok) {
+            alert(dados.mensagem);
+            return;
+        }
+
+        alert("Cadastro realizado com sucesso!");
+
+        window.location.href = "login.html";
+
+    } catch (erro) {
+        console.error(erro);
+        alert("Não foi possível conectar ao servidor.");
     }
-     
-    const response = await fetch("http://localhost:3333/cadastrar", {
-        method: "POST",
-        headers:{
-            "Content-type": "application/json"
-        },
-        body: JSON.stringify({user})
-    }).then(response => response.json())
-
-    alert(response.message)
-
-    window.location.href = "../index.html"
-}
+});

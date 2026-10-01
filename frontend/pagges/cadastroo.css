@@ -1,283 +1,392 @@
-/* ================= BASE (MODO CLARO) ================= */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* ============================================================
+   CADASTRO — PETROTECH
+   Modo claro padrão | modo escuro via classe .dark no <html>
+   (mesmo molde do login.css)
+   ============================================================ */
 
 :root {
-  --bg-page: #e8ebf1;
-  --bg-app: #ffffff;
-  --bg-nav: #f3f6fb;
-  --blue: #1877e0;
-  --field: #f1f4f9;
-  --text: #131922;
-  --muted: #6b7686;
-  --nav-link: #2b3442;
-  --input-text: #131922;
-  --icon: #7b8698;
-  --theme-btn-bg: #e2e9f5;
-  --hero-text: #f0f2f6;
-  --hero-fade-1: rgba(255,255,255,.05);
-  --hero-fade-2: rgba(255,255,255,.45);
-  --hero-bright: .55;
-  --shadow: 0 30px 60px rgba(20,30,50,.18);
-  --btn-ghost-border: rgba(255,255,255,.85);
-  --btn-ghost-text: #ffffff;
+  --primary: #1d8bf1;
+  --header-bg: #ffffff;
+  --bg: #ffffff;
+  --text: #10151d;
+  --muted: #8a94a6;
+  --field-bg: #f1f3f7;
+  --field-border: #e3e7ee;
+  --field-placeholder: #9aa4b2;
+  --icon-btn-bg: #eef1f6;
+  --icon-btn-text: #1d8bf1;
+  --nav-link: #3d4657;
 }
 
-/* ================= MODO ESCURO ================= */
-html.dark {
-  --bg-page: #5c5b66;
-  --bg-app: #1c2129;
-  --bg-nav: #0b1422;
-  --blue: #2b90ef;
-  --field: #262c35;
-  --text: #ffffff;
-  --muted: #98a1ad;
-  --nav-link: #e7ecf3;
-  --input-text: #ffffff;
-  --icon: #aeb6c0;
-  --theme-btn-bg: #16263d;
-  --hero-text: #d7dce3;
-  --hero-fade-1: rgba(28,33,41,.55);
-  --hero-fade-2: rgba(28,33,41,.75);
-  --hero-bright: .42;
-  --shadow: 0 40px 80px rgba(0,0,0,.35);
-  --btn-ghost-border: rgba(255,255,255,.7);
-  --btn-ghost-text: #ffffff;
+.dark {
+  --header-bg: #0b1017;
+  --bg: #151b25;
+  --text: #f5f7fa;
+  --muted: #8a94a6;
+  --field-bg: #1d242f;
+  --field-border: #2a323f;
+  --field-placeholder: #7d8794;
+  --icon-btn-bg: #1d242f;
+  --icon-btn-text: #4da3ff;
+  --nav-link: #c6cdd8;
 }
 
-html { transition: none; }
-body, .app, .navbar, .field, .theme-btn { transition: background-color .25s ease, color .25s ease, border-color .25s ease; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
-  font-family: "Poppins", Arial, sans-serif;
-  background: var(--bg-page);
+  font-family: "Poppins", sans-serif;
+  background: var(--bg);
   color: var(--text);
-  min-height: 100vh;
-  display: flex;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* ===== CABEÇALHO ===== */
+.header {
+  background: var(--header-bg);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  transition: background 0.3s ease;
+}
+
+.dark .header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.nav-inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: center;
-  padding: 60px 20px;
+  gap: 20px;
+  padding: 14px 36px;
 }
 
-/* ================= CARD / APP ================= */
-.app {
-  width: 100%;
-  max-width: 1040px;
-  background: var(--bg-app);
-  border-radius: 26px;
-  overflow: hidden;
-  box-shadow: var(--shadow);
+.nav-inner .logo {
+  justify-self: start;
 }
 
-/* ================= NAVBAR (imagem 2) ================= */
-.navbar {
-  background: var(--bg-nav);
-  display: flex;
+.nav-inner .theme-btn {
+  justify-self: end;
+  margin-left: 0;
+}
+
+.logo {
+  display: inline-flex;
   align-items: center;
-  gap: 26px;
-  padding: 14px 26px;
+  gap: 10px;
+  text-decoration: none;
 }
-
-.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
 
 .logo-badge {
-  width: 30px; height: 30px;
-  border-radius: 9px;
-  background: linear-gradient(180deg, #3b9bf5, #1d6fd0);
-  display: flex; align-items: center; justify-content: center;
-}
-
-.logo-text {
-  color: var(--text);
-  font-weight: 800;
-  font-size: 15px;
-  letter-spacing: .06em;
-}
-.logo-text i { color: #e23b3b; font-style: normal; }
-
-.nav-links { display: flex; align-items: center; gap: 26px; margin-left: 14px; }
-
-.nav-links a {
-  color: var(--nav-link);
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  transition: color .2s;
-}
-.nav-links a:hover { color: var(--blue); }
-.nav-links a.active { color: var(--blue); }
-
-.theme-btn {
-  margin-left: auto;
-  width: 36px; height: 32px;
-  border: none;
-  border-radius: 9px;
-  background: var(--theme-btn-bg);
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer;
-}
-
-/* ================= CONTEÚDO ================= */
-.content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 700px;
-}
-
-/* ---------- Lado esquerdo ---------- */
-.hero { position: relative; display: flex; align-items: center; min-width: 0; }
-
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background-image: url("/pages/imagens/download\ \(10\).jpg");
-  background-size: cover;
-  background-position: center;
-  filter: brightness(var(--hero-bright)) saturate(.9);
-}
-.hero-bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, var(--hero-fade-1) 0%, var(--hero-fade-2) 55%, var(--bg-app) 100%);
-}
-
-.hero-inner { position: relative; padding: 0 24px 0 48px; }
-
-.eyebrow {
-  font-size: 17px;
-  font-weight: 500;
-  letter-spacing: .02em;
-  margin-bottom: 12px;
-}
-
-.hero-title {
-  font-size: 30px;
-  line-height: 1.3;
-  font-weight: 700;
-}
-.accent { color: var(--blue); }
-
-.hero-text {
-  margin-top: 22px;
-  font-size: 11px;
-  line-height: 1.7;
-  color: var(--hero-text);
-}
-
-.hero-actions { margin-top: 32px; display: flex; gap: 16px; }
-
-.btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 42px;
-  padding: 0 26px;
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: 600;
-  text-decoration: none;
-  color: #fff;
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: var(--primary);
 }
-.btn-ghost { border: 1px solid var(--btn-ghost-border); background: transparent; color: var(--btn-ghost-text); }
-.btn-primary { background: var(--blue); min-width: 150px; }
 
-/* ---------- Lado direito ---------- */
-.form-side { padding: 74px 56px 0 20px; min-width: 0; }
-
-.form-title {
-  font-size: 40px;
-  line-height: 1.12;
-  font-weight: 700;
-  margin-bottom: 34px;
+.logo-text {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--text);
 }
-.dot { color: var(--blue); }
 
-.form { display: flex; flex-direction: column; gap: 16px; }
+.theme-btn {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 10px;
+  background: var(--icon-btn-bg);
+  color: var(--icon-btn-text);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
 
-.field {
-  background: var(--field);
-  border: 1px solid transparent;
-  border-radius: 12px;
-  padding: 10px 16px;
+.theme-btn .icon-moon {
+  display: none;
+}
+
+.dark .theme-btn .icon-sun {
+  display: none;
+}
+
+.dark .theme-btn .icon-moon {
+  display: block;
+}
+
+.nav-links {
   display: flex;
   align-items: center;
-  gap: 12px;
-}
-.field-focus {
-  border-color: var(--blue);
-  box-shadow: 0 0 0 3px rgba(43,144,239,.15);
+  gap: 34px;
 }
 
-.field-body { flex: 1; display: flex; flex-direction: column; }
+.nav-links a {
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--nav-link);
+  transition: color 0.2s ease;
+}
 
-.field label {
-  font-size: 9px;
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+.nav-links a.active {
+  color: var(--primary);
+}
+
+/* ===== CADASTRO — LAYOUT ===== */
+.login-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: calc(100vh - 67px);
+}
+
+/* Lado esquerdo: foto */
+.login-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.login-hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.login-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.38) 50%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+}
+
+.login-hero-content {
+  position: absolute;
+  left: 40px;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ffffff;
+}
+
+.hero-tag {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.login-hero-content h1 {
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+
+.login-hero-content h1 span {
+  color: #7cc0ff;
+}
+
+.hero-sub {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+/* Lado direito: formulário */
+.login-form-side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px;
+}
+
+.login-box {
+  width: 100%;
+  max-width: 440px;
+}
+
+.login-title {
+  font-size: clamp(30px, 3.4vw, 42px);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 40px;
+}
+
+.login-title .dot {
+  color: var(--primary);
+}
+
+/* Campos */
+.field {
+  display: block;
+  margin-bottom: 22px;
+}
+
+.field-box {
+  position: relative;
+  display: block;
+  background: var(--field-bg);
+  border: 2px solid var(--field-border);
+  border-radius: 14px;
+  padding: 10px 46px 10px 18px;
+  transition: border-color 0.2s ease, background 0.3s ease;
+}
+
+.field-box:focus-within {
+  border-color: var(--primary);
+}
+
+.field-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
   color: var(--muted);
   margin-bottom: 2px;
 }
-.field label.accent { color: var(--blue); }
 
-.field input {
+.field-box input {
   width: 100%;
-  background: transparent;
   border: none;
   outline: none;
-  color: var(--input-text);
-  font-family: inherit;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: .01em;
+  background: transparent;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  color: var(--text);
 }
 
-.field-icon { width: 20px; height: 20px; color: var(--icon); flex: none; }
+.field-box input::placeholder {
+  color: var(--field-placeholder);
+}
 
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.field-icon {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  pointer-events: none;
+}
 
-.member {
+/* Nome e sobrenome lado a lado */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.form-row .field {
+  margin-bottom: 22px;
+}
+
+/* Link faça seu login */
+.signup {
   text-align: right;
   font-size: 13px;
-  margin-top: 2px;
+  color: var(--text);
+  margin-bottom: 26px;
 }
-.member a { color: var(--blue); text-decoration: none; }
 
-.submit {
-  margin-top: 12px;
-  height: 52px;
+.signup a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.signup a:hover {
+  text-decoration: underline;
+}
+
+/* Botão Cadastre-se */
+.btn-entrar {
+  display: block;
+  width: 100%;
+  padding: 17px 0;
   border: none;
   border-radius: 999px;
-  background: var(--blue);
-  color: #fff;
-  font-family: inherit;
-  font-size: 15px;
+  background: var(--primary);
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: filter .2s;
-}
-.submit:hover { filter: brightness(1.08); }
-
-/* ================= RESPONSIVO ================= */
-@media (max-width: 900px) {
-  .content { grid-template-columns: 1fr; }
-  .hero { min-height: 420px; padding: 60px 0; }
-  .hero-bg::after { background: var(--hero-fade-2); }
-  .form-side { padding: 40px 28px 48px; }
-  .navbar { flex-wrap: wrap; }
+  transition: opacity 0.2s ease;
 }
 
-/* logo/menu icons trocam de cor conforme o tema */
-.theme-btn svg { stroke: var(--blue); }
+.btn-entrar:hover {
+  opacity: 0.9;
+}
 
-/* texto do hero sempre branco para garantir legibilidade sobre a imagem da praia */
-.hero-inner .eyebrow,
-.hero-inner .hero-title,
-.hero-inner .hero-text { color: #ffffff; text-shadow: 0 1px 6px rgba(0,0,0,.45); }
-.hero-inner .hero-title .accent { color: #9ad0ff; }
+/* ============================================================
+   RESPONSIVO (max-width: 600px)
+   Cabeçalho: logo + tema em cima, páginas embaixo à esquerda
+   ============================================================ */
+@media (max-width: 600px) {
+  .nav-inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+    padding: 12px 16px;
+  }
 
-/* no modo escuro, volta a usar a cor do tema para .hero-text (mantendo o original) */
-html.dark .hero-inner .hero-text { color: var(--hero-text); text-shadow: none; }
+  .nav-inner .theme-btn {
+    justify-self: auto;
+    margin-left: auto;
+  }
 
-/* ícones do botão de tema: padrão claro mostra sol, escuro mostra lua */
-.theme-btn .icon-sun { display: block; }
-.theme-btn .icon-moon { display: none; }
-html.dark .theme-btn .icon-sun { display: none; }
-html.dark .theme-btn .icon-moon { display: block; }
+  .logo {
+    order: 1;
+  }
+
+  .theme-btn {
+    order: 2;
+  }
+
+  .nav-links {
+    order: 3;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    justify-content: flex-start;
+    font-size: 13px;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+  }
+
+  /* Cadastro empilhado: foto em cima, formulário embaixo */
+  .login-page {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .login-hero {
+    min-height: 300px;
+  }
+
+  .login-hero-content {
+    left: 22px;
+    right: 22px;
+  }
+
+  .login-form-side {
+    padding: 40px 22px 56px;
+  }
+}

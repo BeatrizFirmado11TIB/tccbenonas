@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>PETROTECH — Criar conta</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="cadastroo.css" />
-<script src="theme (2).js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro | Petrotech</title>
+
+  <!-- Fonte Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="cadastroo.css" />
 </head>
+
 <body>
-
-  <div class="app">
-
-    <!-- ================= MENU (imagem 2) ================= -->
-    <header class="navbar">
-      <a href="#" class="logo">
+  <!-- ===== CABEÇALHO ===== -->
+  <header class="header">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">
         <span class="logo-badge">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="2"
-               stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2l8 3v6c0 5-3.4 9.2-8 11-4.6-1.8-8-6-8-11V5l8-3z"/>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
           </svg>
         </span>
         <span class="logo-text">PETROTECH</span>
@@ -33,94 +36,146 @@
         <a href="/pages/equipe/equipe.html">Quem somos</a>
         <a href="/pages/referencias/ref.html">Referências</a>
         <a href="/pages/jogo/jogo.html">Jogo</a>
-        <a href="/frontend/pagges/login (1).html">Login</a>
+        <a href="/frontend/pagges/login.html" class="active">Login</a>
       </nav>
 
-      <button class="theme-btn" aria-label="Alternar tema">
-        <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
-             stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      <button class="theme-btn" aria-label="Ativar modo escuro">
+        <!-- Sol (modo claro) -->
+        <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
         </svg>
-        <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
-             stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="4"/>
-          <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        <!-- Lua (modo escuro) -->
+        <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
         </svg>
       </button>
-    </header>
+    </div>
+  </header>
 
-    <!-- ================= CONTEÚDO ================= -->
-    <main class="content">
+  <!-- ===== CADASTRO ===== -->
+  <main class="login-page">
+    <!-- Lado esquerdo: foto -->
+    <section class="login-hero">
+      <!-- Troque "plataforma.jpg" pelo nome do arquivo da sua foto -->
+      <img src="/pages/imagens/download (10).jpg" alt="Plataforma de petróleo no mar" class="login-hero-img" />
+      <div class="login-hero-overlay"></div>
+      <div class="login-hero-content">
+        <p class="hero-tag">MONITORE. CONTROLE. PREVINA.</p>
+        <h1>
+          Tenha o controle da sua<br />
+          válvula em <span>tempo real</span>, onde<br />
+          estiver.
+        </h1>
+        <p class="hero-sub">Cadastre-se ao lado e tenha acesso ao monitoramento.</p>
+      </div>
+    </section>
 
-      <!-- Lado esquerdo -->
-      <section class="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-inner">
-          <p class="eyebrow">MONITORE. CONTROLE. PREVINA.</p>
-          <h1 class="hero-title">
-            Tenha o controle da sua<br />válvula em
-            <span class="accent">tempo real</span>, onde estiver.
-          </h1>
-          <p class="hero-text">
-            Cadastre-se ao lado e tenha acesso ao monitoramento.
-          </p>
-        </div>
-      </section>
+    <!-- Lado direito: formulário -->
+    <section class="login-form-side">
+      <div class="login-box">
+        <h2 class="login-title">
+          Crie<br />
+          sua conta<span class="dot">.</span>
+        </h2>
 
-      <!-- Lado direito - formulário -->
-      <section class="form-side">
-        <h2 class="form-title">Crie<br />sua conta<span class="dot">.</span></h2>
+       <form id="formCadastro">
+          <!-- Username -->
+          <label class="field">
+            <span class="field-box">
+              <span class="field-label">Username</span>
+            <input
+    type="text"
+    id="username"
+    name="username"
+    placeholder="Digite seu usuário..."
+    autocomplete="username"
+/>  <svg class="field-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+            </span>
+          </label>
 
-        <form class="form">
-          <div class="field">
-            <div class="field-body">
-              <label>Username</label>
-              <input type="text" placeholder="Digite seu usuário..." id="nome" required>
-            </div>
-            <svg class="field-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-4 0-8 2-8 5v1h16v-1c0-3-4-5-8-5z"/></svg>
+          <!-- Nome e sobrenome (lado a lado) -->
+          <div class="form-row">
+            <label class="field">
+              <span class="field-box">
+                <span class="field-label">First Name</span>
+               <input
+    type="text"
+    id="nome"
+    name="firstname"
+    placeholder="nome"
+    autocomplete="given-name"
+/> <svg class="field-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="5" width="18" height="14" rx="2" />
+                  <path d="M7 15h4M7 12h2" />
+                </svg>
+              </span>
+            </label>
+
+            <label class="field">
+              <span class="field-box">
+                <span class="field-label">Last Name</span>
+               <input
+    type="text"
+    id="sobrenome"
+    name="lastname"
+    placeholder="sobrenome"
+    autocomplete="family-name"
+/> <svg class="field-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="5" width="18" height="14" rx="2" />
+                  <path d="M7 15h4M7 12h2" />
+                </svg>
+              </span>
+            </label>
           </div>
 
-          <div class="field-row">
-            <div class="field">
-              <div class="field-body">
-                <label>First Name</label>
-                <input type="text" placeholder="nome" id="nome" required>
-              </div>
-              <svg class="field-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zM8.5 8a2 2 0 1 1-2 2 2 2 0 0 1 2-2zM12 16H5v-.5c0-1.4 2.3-2.2 3.5-2.2s3.5.8 3.5 2.2zm7-1h-5v-2h5zm0-3h-5v-2h5z"/></svg>
-            </div>
-            <div class="field">
-              <div class="field-body">
-                <label>Last Name</label>
-                <input type="text" placeholder="sobrenome" id="nome" required>
-              </div>
-              <svg class="field-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zM8.5 8a2 2 0 1 1-2 2 2 2 0 0 1 2-2zM12 16H5v-.5c0-1.4 2.3-2.2 3.5-2.2s3.5.8 3.5 2.2zm7-1h-5v-2h5zm0-3h-5v-2h5z"/></svg>
-            </div>
-          </div>
+          <!-- Email -->
+          <label class="field">
+            <span class="field-box">
+              <span class="field-label">Email</span>
+             <input
+    type="email"
+    id="email"
+    name="email"
+    placeholder="Digite seu email..."
+    autocomplete="email"
+/> <svg class="field-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="m22 7-10 6L2 7" />
+              </svg>
+            </span>
+          </label>
 
-          <div class="field">
-            <div class="field-body">
-              <label>Email</label>
-              <input type="email" placeholder="Digite seu email..." id="email" required>
-            </div>
-            <svg class="field-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></svg>
-          </div>
+          <!-- Password -->
+          <label class="field">
+            <span class="field-box">
+              <span class="field-label">Password</span>
+             <input
+    type="password"
+    id="senha"
+    name="password"
+    placeholder="Digite sua senha"
+    autocomplete="new-password"
+/> <svg class="field-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+            </span>
+          </label>
 
-          <div class="field field-focus">
-            <div class="field-body">
-              <label class="accent">Password</label>
-              <input type="password" placeholder="Digite sua senha" id="nome" required>
-            </div>
-            <svg class="field-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 5c-5 0-9 4.5-10 7 1 2.5 5 7 10 7s9-4.5 10-7c-1-2.5-5-7-10-7zm0 11a4 4 0 1 1 4-4 4 4 0 0 1-4 4zm0-6a2 2 0 1 0 2 2 2 2 0 0 0-2-2z"/></svg>
-          </div>
+          <p class="signup">Já tem login? <a href="/frontend/pagges/login.html">Faça seu login</a></p>
 
-          <p class="member">Já tem login? <a href="/frontend/pagges/login (1).html">Faça seu login</a></p>
-
-          <button type="submit" class="submit">Cadastre-se</button>
+          <button type="submit" class="btn-entrar">Cadastre-se</button>
         </form>
-      </section>
+      </div>
+    </section>
+  </main>
 
-    </main>
-  </div>
-
+  <!-- Seu JS de tema -->
+ <script src="theme (2).js"></script>
+<script src="cadastro.js"></script>
 </body>
 </html>
