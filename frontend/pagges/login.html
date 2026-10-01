@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Petrotech</title>
+
+  <!-- Fonte Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="login.css" />
+</head>
+
+<body>
+  <!-- ===== CABEÇALHO ===== -->
+  <header class="header">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-badge">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+        </span>
+        <span class="logo-text">PETROTECH</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html">Início</a>
+        <a href="/pages/instruções/instruções_2.html">Instruções</a>
+        <a href="/pages/produtos/produt.html">Produto</a>
+        <a href="/pages/equipe/equipe.html">Quem somos</a>
+        <a href="/pages/referencias/ref.html">Referências</a>
+        <a href="/pages/jogo/jogo.html">Jogo</a>
+        <a href="/frontend/pagges/login.html" class="active">Login</a>
+      </nav>
+
+      <button class="theme-btn" aria-label="Ativar modo escuro">
+        <!-- Sol (modo claro) -->
+        <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+        </svg>
+        <!-- Lua (modo escuro) -->
+        <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== LOGIN ===== -->
+  <main class="login-page">
+    <!-- Lado esquerdo: foto -->
+    <section class="login-hero">
+      <!-- Troque "plataforma.jpg" pelo nome do arquivo da sua foto -->
+      <img src="/pages/imagens/download (10).jpg" alt="Plataforma de petróleo no mar" class="login-hero-img" />
+      <div class="login-hero-overlay"></div>
+      <div class="login-hero-content">
+        <p class="hero-tag">MONITORE. CONTROLE. PREVINA.</p>
+        <h1>
+          Tenha o controle da sua<br />
+          válvula em <span>tempo real</span>, onde<br />
+          estiver.
+        </h1>
+        <p class="hero-sub">Faça login ao lado e tenha acesso ao monitoramento.</p>
+      </div>
+    </section>
+
+    <!-- Lado direito: formulário -->
+    <section class="login-form-side">
+      <div class="login-box">
+        <h2 class="login-title">
+          Acesse<br />
+          o aplicativo<span class="dot">.</span>
+        </h2>
+
+        <form action="#" method="post">
+          <!-- Username -->
+          <label class="field">
+            <span class="field-box">
+              <span class="field-label">Username</span>
+              <input type="text" name="username" placeholder="Digite seu usuário..." autocomplete="username" />
+              <svg class="field-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+            </span>
+          </label>
+
+          <!-- Password -->
+          <label class="field">
+            <span class="field-box">
+              <span class="field-label">Password</span>
+              <input type="password" name="password" placeholder="Digite sua senha" autocomplete="current-password" />
+              <svg class="field-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+            </span>
+          </label>
+
+          <p class="signup">Não tem login? <a href="/frontend/pagges/cadastroo.html">Cadastre-se</a></p>
+
+          <button type="submit" class="btn-entrar">Entrar</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Seu JS de tema -->
+  <script src="/frontend/pagges/theme (2).js"></script>
+</body>
+</html>
