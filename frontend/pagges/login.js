@@ -9,11 +9,9 @@ formulario.addEventListener("submit", async (event) => {
     try {
         const resposta = await fetch("http://localhost:3000/login", {
             method: "POST",
-
             headers: {
                 "Content-Type": "application/json"
             },
-
             body: JSON.stringify({
                 username,
                 senha
@@ -28,14 +26,15 @@ formulario.addEventListener("submit", async (event) => {
         }
 
         // Guarda os dados do usuário
-        localStorage.setItem(
-            "usuario",
-            JSON.stringify(dados.usuario)
-        );
+        localStorage.setItem("usuario", JSON.stringify(dados.usuario));
+
+        // Libera a página do app (monitoramento)
+        localStorage.setItem("petrotech-logado", "sim");
 
         alert("Login realizado com sucesso!");
 
-        window.location.href = "../index.html";
+        // Abre o app assim que o login é feito
+        window.location.href = "/frontend/pagges/monitoramento.html";
 
     } catch (erro) {
         console.error(erro);

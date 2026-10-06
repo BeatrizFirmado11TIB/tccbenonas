@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PETROTECH — Monitoramento</title>
+
+  <!-- Fonte Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="monitoramento.css" />
+</head>
+<body>
+  <script>
+    // Só abre depois do login
+    if (localStorage.getItem("petrotech-logado") !== "sim") { window.location.href = "login.html"; }
+  </script>
+<body>
+  <!-- ===== CABEÇALHO ===== -->
+  <header class="header">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-badge">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+        </span>
+        <span class="logo-text">PETROTECH</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html">Início</a>
+        <a href="instrucoes.html">Instruções</a>
+        <a href="produto.html">Produto</a>
+        <a href="quemsomos.html">Quem somos</a>
+        <a href="referencias.html">Referências</a>
+        <a href="jogo.html">Jogo</a>
+        <a href="monitoramento.html" class="active">Monitoramento</a>
+        <a href="#" id="sair">Sair</a>
+      </nav>
+
+      <button class="theme-btn" aria-label="Ativar modo escuro">
+        <!-- Sol (modo claro) -->
+        <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+        </svg>
+        <!-- Lua (modo escuro) -->
+        <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== CADASTRO ===== -->
+  <main class="login-page">
+  <main class="monitor-page">
+    <section class="intro">
+      <p class="tag">MONITORE. CONTROLE. PREVINA.</p>
+      <h1>Monitoramento da <span>válvula</span> em tempo real</h1>
+      <p>
+        Nosso protótipo usa um sensor que lê a pressão da válvula e envia os dados para cá.
+        Acompanhar essa pressão em tempo real permite perceber variações antes que virem um problema,
+        evitando vazamentos, sobrecargas e paradas inesperadas. Cadastre sua válvula abaixo e
+        veja na hora quanto ela está aberta e qual a pressão atual.
+      </p>
+    </section>
+
+    <div class="grid">
+      <section class="card">
+        <h2>Cadastrar válvula<span class="dot">.</span></h2>
+        <form id="form-valvula" class="form-grid">
+          <div class="campo full"><label>Nome da válvula</label><input id="v-nome" placeholder="Ex.: Válvula Linha 1" required></div>
+          <div class="campo"><label>Endereço IP do dispositivo</label><input id="v-ip" placeholder="192.168.0.50" required pattern="^(\d{1,3}\.){3}\d{1,3}(:\d+)?$"></div>
+          <div class="campo"><label>Nº de série</label><input id="v-serie" placeholder="PT-0001" required></div>
+          <div class="campo"><label>Tipo</label>
+            <select id="v-tipo"><option>Esfera</option><option>Gaveta</option><option>Globo</option><option>Borboleta</option><option>Alívio</option></select>
+          </div>
+          <div class="campo"><label>Pressão máxima (bar)</label><input id="v-max" type="number" min="1" step="0.1" value="10" required></div>
+          <div class="campo full"><label>Localização</label><input id="v-local" placeholder="Ex.: Plataforma A — setor 3" required></div>
+          <div class="full acoes"><button class="btn" type="submit">Salvar válvula</button></div>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>Válvulas cadastradas<span class="dot">.</span></h2>
+        <ul class="lista" id="lista"></ul>
+        <p class="vazio" id="vazio">Nenhuma válvula cadastrada ainda.</p>
+      </section>
+    </div>
+
+    <section class="card painel" id="painel" hidden>
+      <div class="painel-topo">
+        <h2 id="p-nome">Válvula<span class="dot">.</span></h2>
+        <span class="status sim" id="p-status">Simulação</span>
+      </div>
+      <div class="painel-corpo">
+        <div class="valvula">
+          <svg viewBox="0 0 200 120">
+            <path class="trilho" d="M20 110 A80 80 0 0 1 180 110" fill="none" stroke-width="16" stroke-linecap="round"/>
+            <path class="arco" id="arco" d="M20 110 A80 80 0 0 1 180 110" fill="none" stroke="#1d8bf1" stroke-width="16" stroke-linecap="round" stroke-dasharray="251.3" stroke-dashoffset="251.3"/>
+          </svg>
+          <div class="leitura"><strong id="p-pct">0%</strong><span>abertura da válvula</span></div>
+        </div>
+        <div class="dados">
+          <div class="dado"><small>Pressão atual</small><b id="p-pressao">— bar</b></div>
+          <div class="dado"><small>Pressão máxima</small><b id="p-max">— bar</b></div>
+          <div class="dado"><small>IP</small><b id="p-ip">—</b></div>
+          <div class="dado"><small>Tipo</small><b id="p-tipo">—</b></div>
+          <div class="dado"><small>Local</small><b id="p-local">—</b></div>
+          <div class="dado"><small>Última leitura</small><b id="p-hora">—</b></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+    <script src="/frontend/pagges/theme (2).js"></script>
+   <script src="/frontend/pagges/monitoramento.js"></script>
+</body>
+</html>
