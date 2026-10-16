@@ -18,7 +18,7 @@
 <body>
   <script>
     // Só abre depois do login
-    if (localStorage.getItem("petrotech-logado") !== "sim") { window.location.href = "login.html"; }
+    if (localStorage.getItem("petrotech-logado") !== "sim" && !localStorage.getItem("usuario")) { window.location.href = "/frontend/pagges/login.html"; }
   </script>
 <body>
   <!-- ===== CABEÇALHO ===== -->
@@ -78,11 +78,13 @@
         <form id="form-valvula" class="form-grid">
           <div class="campo full"><label>Nome da válvula</label><input id="v-nome" placeholder="Ex.: Válvula Linha 1" required></div>
           <div class="campo"><label>Endereço IP do dispositivo</label><input id="v-ip" placeholder="192.168.0.50" required pattern="^(\d{1,3}\.){3}\d{1,3}(:\d+)?$"></div>
-          <div class="campo"><label>Nº de série</label><input id="v-serie" placeholder="PT-0001" required></div>
+          <div class="campo"><label>Faixa de medição</label><input id="v-faixa" placeholder="Ex.: 0 a 10 bar" required></div>
           <div class="campo"><label>Tipo</label>
             <select id="v-tipo"><option>Esfera</option><option>Gaveta</option><option>Globo</option><option>Borboleta</option><option>Alívio</option></select>
           </div>
-          <div class="campo"><label>Pressão máxima (bar)</label><input id="v-max" type="number" min="1" step="0.1" value="10" required></div>
+          <div class="campo"><label>Material</label>
+            <select id="v-material"><option>Aço inoxidável</option><option>Aço carbono</option><option>Ferro fundido</option><option>Bronze</option><option>PVC ou outro plástico</option></select>
+          </div>
           <div class="campo full"><label>Localização</label><input id="v-local" placeholder="Ex.: Plataforma A — setor 3" required></div>
           <div class="full acoes"><button class="btn" type="submit">Salvar válvula</button></div>
         </form>
@@ -110,7 +112,7 @@
         </div>
         <div class="dados">
           <div class="dado"><small>Pressão atual</small><b id="p-pressao">— bar</b></div>
-          <div class="dado"><small>Pressão máxima</small><b id="p-max">— bar</b></div>
+          <div class="dado"><small>Material</small><b id="p-material">—</b></div>
           <div class="dado"><small>IP</small><b id="p-ip">—</b></div>
           <div class="dado"><small>Tipo</small><b id="p-tipo">—</b></div>
           <div class="dado"><small>Local</small><b id="p-local">—</b></div>

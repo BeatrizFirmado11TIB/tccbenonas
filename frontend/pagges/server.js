@@ -165,6 +165,103 @@ app.post("/login", (req, res) => {
 });
 
 
+/* =====================================
+   CADASTRO DE VÁLVULAS
+===================================== */
+
+app.post("/valvulas", (req, res) => {
+  const {
+    nome,
+    ip_dispositivo,
+    faixa_medicao,
+    tipo,
+    material,
+    localizacao
+  } = req.body;
+
+  // Verifica se todos os campos foram preenchidos
+  if (
+    typeof nome !== "string" || !nome.trim() ||
+    typeof ip_dispositivo !== "string" || !ip_dispositivo.trim() ||
+    faixa_medicao === undefined ||
+    faixa_medicao === null ||
+    String(faixa_medicao).trim() === "" ||
+    !Number.isFinite(Number(faixa_medicao)) ||
+    Number(faixa_medicao) <= 0 ||
+    typeof tipo !== "string" || !tipo.trim() ||
+    typeof material !== "string" || !material.trim() ||
+    typeof localizacao !== "string" || !localizacao.trim()
+  ) {
+    return res.status(400).json({
+      mensagem: "Preencha todos os campos corretamente."
+    });
+  }
+
+  const sql = `
+    INSERT INTO valvulas
+    (nome, ip_dispositivo, faixa_medicao, tipo, material, localizacao)
+    VALUES (?, ?, ?, ?, ?, ?)
+  `;
+
+  const valores = [
+    nome.trim(),
+    ip_dispositivo.trim(),
+    Number(faixa_medicao),
+    tipo.trim(),
+    material.trim(),
+    localizacao.trim()
+  ];
+
+  db.query(sql, valores, (erro, resultado) => {
+    if (erro) {
+      console.error("Erro ao cadastrar válvula:", erro);
+
+      return res.status(500).json({
+        mensagem: "Erro ao salvar a válvula no banco de dados."
+      });
+    }
+
+    return res.status(201).json({
+      mensagem: "Válvula cadastrada com sucesso!",
+      id: resultado.insertId
+    });
+  });
+});
+
+
+/* =====================================
+   LISTAR VÁLVULAS CADASTRADAS
+===================================== */
+
+app.get("/valvulas", (req, res) => {
+  const sql = `
+    SELECT
+      id,
+      nome,
+      ip_dispositivo,
+      faixa_medicao,
+      tipo,
+      material,
+      localizacao,
+      data_cadastro
+    FROM valvulas
+    ORDER BY id DESC
+  `;
+
+  db.query(sql, (erro, resultados) => {
+    if (erro) {
+      console.error("Erro ao buscar válvulas:", erro);
+
+      return res.status(500).json({
+        mensagem: "Erro ao buscar válvulas."
+      });
+    }
+
+    return res.status(200).json(resultados);
+  });
+});
+
+
 // =========================
 // INICIAR SERVIDOR
 // =========================

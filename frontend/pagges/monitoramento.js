@@ -7,6 +7,13 @@ let timer = null;
 const $ = (id) => document.getElementById(id);
 const salvar = () => localStorage.setItem(CHAVE, JSON.stringify(valvulas));
 
+// Lê o limite da faixa de medição (ex.: "0 a 10 bar" -> 10). Sem isso, usa 10.
+function faixaMax(t) {
+  const n = ((t || "").replace(",", ".").match(/\d+(?:\.\d+)?/g) || []).pop();
+  const v = parseFloat(n);
+  return isFinite(v) && v > 0 ? v : 10;
+}
+
 // Sair
 $("sair").addEventListener("click", (e) => {
   e.preventDefault();
@@ -22,15 +29,15 @@ $("form-valvula").addEventListener("submit", (e) => {
     id: Date.now(),
     nome: $("v-nome").value.trim(),
     ip: $("v-ip").value.trim(),
-    serie: $("v-serie").value.trim(),
+    faixa: $("v-faixa").value.trim(),
     tipo: $("v-tipo").value,
-    max: parseFloat($("v-max").value),
+    material: $("v-material").value,
+    max: faixaMax($("v-faixa").value),
     local: $("v-local").value.trim(),
   };
   valvulas.push(v);
   salvar();
   e.target.reset();
-  $("v-max").value = 10;
   renderLista();
   selecionar(v.id);
 });
@@ -45,7 +52,7 @@ function renderLista() {
     const info = document.createElement("div");
     info.innerHTML = "<b></b><small></small>";
     info.querySelector("b").textContent = v.nome;
-    info.querySelector("small").textContent = `${v.ip} • ${v.tipo} • ${v.serie}`;
+    info.querySelector("small").textContent = [v.ip, v.tipo, v.material].filter(Boolean).join(" • ");
     const x = document.createElement("button");
     x.className = "remover"; x.title = "Remover"; x.textContent = "×";
     x.onclick = (ev) => {
@@ -69,7 +76,7 @@ function selecionar(id) {
   $("painel").hidden = false;
   $("p-nome").innerHTML = "";
   $("p-nome").append(v.nome, Object.assign(document.createElement("span"), { className: "dot", textContent: "." }));
-  $("p-max").textContent = v.max + " bar";
+  $("p-material").textContent = v.material || "—";
   $("p-ip").textContent = v.ip;
   $("p-tipo").textContent = v.tipo;
   $("p-local").textContent = v.local;
