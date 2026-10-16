@@ -169,6 +169,11 @@ app.post("/login", (req, res) => {
    CADASTRO DE VÁLVULAS
 ===================================== */
 
+
+/* =====================================
+   CADASTRAR VÁLVULA
+===================================== */
+
 app.post("/valvulas", (req, res) => {
   const {
     nome,
@@ -179,7 +184,7 @@ app.post("/valvulas", (req, res) => {
     localizacao
   } = req.body;
 
-  // Verifica se todos os campos foram preenchidos
+  // Validar os campos
   if (
     typeof nome !== "string" || !nome.trim() ||
     typeof ip_dispositivo !== "string" || !ip_dispositivo.trim() ||
@@ -258,6 +263,43 @@ app.get("/valvulas", (req, res) => {
     }
 
     return res.status(200).json(resultados);
+  });
+});
+
+
+/* =====================================
+   EXCLUIR VÁLVULA
+===================================== */
+
+app.delete("/valvulas/:id", (req, res) => {
+  const id = Number(req.params.id);
+
+  if (!Number.isInteger(id) || id <= 0) {
+    return res.status(400).json({
+      mensagem: "ID da válvula inválido."
+    });
+  }
+
+  const sql = "DELETE FROM valvulas WHERE id = ?";
+
+  db.query(sql, [id], (erro, resultado) => {
+    if (erro) {
+      console.error("Erro ao excluir válvula:", erro);
+
+      return res.status(500).json({
+        mensagem: "Erro ao excluir a válvula do banco de dados."
+      });
+    }
+
+    if (resultado.affectedRows === 0) {
+      return res.status(404).json({
+        mensagem: "Válvula não encontrada."
+      });
+    }
+
+    return res.status(200).json({
+      mensagem: "Válvula excluída com sucesso!"
+    });
   });
 });
 
