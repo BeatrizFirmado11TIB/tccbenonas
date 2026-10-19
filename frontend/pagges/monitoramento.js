@@ -23,15 +23,21 @@ function faixaMax(valor) {
     : 0.5;
 }
 
-// Encerra a sessão de login.
-$("sair").addEventListener("click", (e) => {
-  e.preventDefault();
 
-  localStorage.removeItem("petrotech-logado");
-  localStorage.removeItem("usuario");
+/* Encerra a sessão de login. */
+const botaoSair = $("sair");
 
-  window.location.href = "/frontend/pages/login.html";
-});
+if (botaoSair) {
+  botaoSair.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    localStorage.removeItem("petrotech-logado");
+    localStorage.removeItem("usuario");
+
+    window.location.href = "/frontend/pages/login.html";
+  });
+}
+
 
 // Busca as válvulas salvas no MySQL.
 async function carregarValvulas() {

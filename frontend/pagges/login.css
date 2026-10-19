@@ -47,6 +47,9 @@ body {
 .header {
   background: var(--header-bg);
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 50;
   transition: background 0.3s ease;
 }
 
@@ -66,9 +69,11 @@ body {
   justify-self: start;
 }
 
-.nav-inner .theme-btn {
+.nav-actions {
   justify-self: end;
-  margin-left: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .logo {
@@ -96,7 +101,6 @@ body {
 }
 
 .theme-btn {
-  margin-left: auto;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -107,6 +111,7 @@ body {
   background: var(--icon-btn-bg);
   color: var(--icon-btn-text);
   cursor: pointer;
+  flex: 0 0 38px;
   transition: background 0.3s ease;
 }
 
@@ -122,6 +127,46 @@ body {
   display: block;
 }
 
+/* Botão Hamburguer (mobile) */
+.hamburger-btn {
+  display: none;
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 10px;
+  background: var(--icon-btn-bg);
+  color: var(--icon-btn-text);
+  cursor: pointer;
+  flex: 0 0 38px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0;
+  transition: background-color 0.25s ease;
+}
+
+.hamburger-btn span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.hamburger-btn.active span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.hamburger-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-btn.active span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -134,6 +179,7 @@ body {
   font-weight: 500;
   color: var(--nav-link);
   transition: color 0.2s ease;
+  white-space: nowrap;
 }
 
 .nav-links a:hover {
@@ -322,41 +368,64 @@ body {
 }
 
 /* ============================================================
-   RESPONSIVO (max-width: 600px)
-   Cabeçalho: logo + tema em cima, páginas embaixo à esquerda
+   RESPONSIVO (max-width: 768px)
    ============================================================ */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+  .hamburger-btn {
+    display: flex;
+  }
+
   .nav-inner {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px 14px;
-    padding: 12px 16px;
-  }
-
-  .nav-inner .theme-btn {
-    justify-self: auto;
-    margin-left: auto;
-  }
-
-  .logo {
-    order: 1;
-  }
-
-  .theme-btn {
-    order: 2;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 18px;
+    position: relative;
   }
 
   .nav-links {
-    order: 3;
+    position: absolute;
+    top: 100%;
+    left: 0;
     width: 100%;
-    flex-wrap: wrap;
-    gap: 8px 18px;
-    justify-content: flex-start;
-    font-size: 13px;
+    transform: none;
+    background: var(--header-bg);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 8px 16px 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 100;
+  }
+
+  .dark .nav-links {
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .nav-links.open {
+    display: flex;
   }
 
   .nav-links a {
-    font-size: 13px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  }
+
+  .dark .nav-links a {
+    border-bottom-color: rgba(255, 255, 255, 0.05);
+  }
+
+  .nav-links a:last-child {
+    border-bottom: none;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    background: var(--field-bg);
   }
 
   /* Login empilhado: foto em cima, formulário embaixo */
