@@ -2,15 +2,15 @@
 /* ===== MONITORAMENTO — PETROTECH ===== */
 
 const API = "http://localhost:3000/valvulas";
+const IP_ESP32 = "10.59.84.238";
 
 let valvulas = [];
 let ativaId = null;
 let timer = null;
-let simulada = 0;
 
 const $ = (id) => document.getElementById(id);
 
-// Obtém o limite da faixa de medição, em MPa.
+/* Obtém o limite da faixa de medição cadastrada. */
 function faixaMax(valor) {
   const numeros = String(valor || "")
     .replace(",", ".")
@@ -23,8 +23,8 @@ function faixaMax(valor) {
     : 0.5;
 }
 
+/* ===== ENCERRAR SESSÃO ===== */
 
-/* Encerra a sessão de login. */
 const botaoSair = $("sair");
 
 if (botaoSair) {
@@ -38,8 +38,8 @@ if (botaoSair) {
   });
 }
 
+/* ===== CARREGAR VÁLVULAS DO MYSQL ===== */
 
-// Busca as válvulas salvas no MySQL.
 async function carregarValvulas() {
   try {
     const resposta = await fetch(API);
@@ -53,23 +53,24 @@ async function carregarValvulas() {
     renderLista();
 
     if (valvulas.length > 0) {
-      selecionar(valvulas[0].id);
+      const existe = valvulas.some(
+        (v) => Number(v.id) === Number(ativaId)
+      );
+
+      selecionar(existe ? ativaId : valvulas[0].id);
     } else {
       ativaId = null;
-      $("painel").hidden = true;
       clearInterval(timer);
+      $("painel").hidden = true;
     }
   } catch (erro) {
     console.error("Erro ao carregar válvulas:", erro);
-
-    alert(
-      "Não foi possível carregar as válvulas. " +
-      "Confira se o backend está funcionando."
-    );
+    alert("Não foi possível carregar as válvulas. Confira o backend.");
   }
 }
 
-// Cadastra a válvula no backend.
+/* ===== CADASTRAR VÁLVULA ===== */
+
 $("form-valvula").addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -93,9 +94,7 @@ $("form-valvula").addEventListener("submit", async (e) => {
   try {
     const resposta = await fetch(API, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(novaValvula)
     });
 
@@ -108,10 +107,8 @@ $("form-valvula").addEventListener("submit", async (e) => {
 
     e.target.reset();
 
-    // Busca novamente os dados reais do banco.
     await carregarValvulas();
 
-    // Seleciona o registro recém-criado.
     if (dados.id !== undefined && dados.id !== null) {
       selecionar(dados.id);
     }
@@ -119,14 +116,12 @@ $("form-valvula").addEventListener("submit", async (e) => {
     alert("Válvula cadastrada com sucesso!");
   } catch (erro) {
     console.error("Erro ao cadastrar válvula:", erro);
-    alert(
-      "Não foi possível conectar ao backend. " +
-      "Confira se o servidor está ligado."
-    );
+    alert("Não foi possível conectar ao backend.");
   }
 });
 
-// Mostra a lista de válvulas.
+/* ===== MOSTRAR LISTA DE VÁLVULAS ===== */
+
 function renderLista() {
   const ul = $("lista");
   ul.innerHTML = "";
@@ -179,8 +174,8 @@ function renderLista() {
 
         if (Number(ativaId) === Number(v.id)) {
           ativaId = null;
-          $("painel").hidden = true;
           clearInterval(timer);
+          $("painel").hidden = true;
         }
 
         await carregarValvulas();
@@ -197,7 +192,8 @@ function renderLista() {
   });
 }
 
-// Seleciona uma válvula para monitorar.
+/* ===== SELECIONAR VÁLVULA ===== */
+
 function selecionar(id) {
   const v = valvulas.find(
     (item) => Number(item.id) === Number(id)
@@ -218,93 +214,124 @@ function selecionar(id) {
 
   clearInterval(timer);
 
-  simulada = 0;
   ler(v);
-
-  timer = setInterval(() => {
-    ler(v);
-  }, 2000);
+  timer = setInterval(() => ler(v), 1000);
 }
 
-// Consulta a pressão do dispositivo.
-// Espera JSON no formato: {"pressao": 0.25}
-// O valor de pressão deve estar em MPa.
+/* ===== LER DADOS DO ESP32 ===== */
+
 async function ler(v) {
-  let pressao;
-  let real = false;
+  if (Number(ativaId) !== Number(v.id)) return;
 
   try {
+    const ipCadastrado = (v.ip_dispositivo || "").trim();
+    const ip = ipCadastrado || IP_ESP32;
+
+    const base = /^https?:\/\//i.test(ip)
+      ? ip.replace(/\/+$/, "")
+      : `http://${ip}`;
+
     const ctrl = new AbortController();
-    const timeout = setTimeout(() => ctrl.abort(), 1500);
+    const timeout = setTimeout(() => ctrl.abort(), 3000);
+
+    let resposta;
 
     try {
-      const resposta = await fetch(
-        `http://${v.ip_dispositivo}/pressao`,
-        { signal: ctrl.signal }
-      );
-
-      if (!resposta.ok) {
-        throw new Error("Dispositivo não respondeu corretamente.");
-      }
-
-      const dados = await resposta.json();
-      pressao = Number(dados.pressao);
-
-      real = Number.isFinite(pressao) && pressao >= 0;
+      resposta = await fetch(`${base}/dados`, {
+        signal: ctrl.signal
+      });
     } finally {
       clearTimeout(timeout);
     }
+
+    if (!resposta.ok) {
+      throw new Error(`Erro HTTP ${resposta.status}`);
+    }
+
+    const dados = await resposta.json();
+    const tensao = Number(dados.tensao);
+
+    if (!Number.isFinite(tensao)) {
+      throw new Error("Tensão inválida recebida do ESP32.");
+    }
+
+    if (Number(ativaId) !== Number(v.id)) return;
+
+    atualizar(v, tensao, dados.status);
+
+    console.log("Dados recebidos do ESP32:", dados);
+
   } catch (erro) {
-    // Se o dispositivo não responder, usa simulação.
-    real = false;
+    if (Number(ativaId) !== Number(v.id)) return;
+
+    console.error("Erro ao ler o ESP32:", erro);
+
+    $("p-status").textContent = "ESP32 desconectado";
+    $("p-status").classList.add("sim");
+
+    $("p-pressao").textContent = "Sem leitura";
+    $("p-pct").textContent = "—";
+    $("p-hora").textContent = "—";
+
+    $("arco").style.strokeDashoffset = 251.3;
+    $("arco").style.stroke = "#64748b";
   }
-
-  if (!real) {
-    const max = faixaMax(String(v.faixa_medicao));
-
-    simulada = Math.min(
-      max,
-      Math.max(
-        0,
-        simulada + (Math.random() - 0.5) * max * 0.08
-      )
-    );
-
-    pressao = simulada;
-  }
-
-  // Evita atualizar o painel se outra válvula foi selecionada.
-  if (Number(ativaId) !== Number(v.id)) return;
-
-  atualizar(v, pressao, real);
 }
 
-// Atualiza o indicador de pressão.
-function atualizar(v, pressao, real) {
-  const max = faixaMax(String(v.faixa_medicao));
+/* ===== VELOCÍMETRO E ESTADOS ===== */
 
-  const pct = Math.round(
-    Math.min(100, Math.max(0, (pressao / max) * 100))
-  );
+function atualizar(v, tensao, statusESP32) {
+  let estado;
+  let cor;
+  let pct;
+
+  /*
+    Limites definidos para o comportamento visual:
+    abaixo de 0,50 V: Normal
+    de 0,50 V até abaixo de 0,52 V: Médio
+    a partir de 0,52 V: Crítico
+  */
+
+  if (tensao < 0.50) {
+    estado = "Normal";
+    cor = "#00d6c9";
+    pct = (tensao / 0.52) * 100;
+  } else if (tensao < 0.52) {
+    estado = "Médio";
+    cor = "#f59e0b";
+    pct = (tensao / 0.52) * 100;
+  } else {
+    estado = "Crítico";
+    cor = "#ef4444";
+    pct = 100;
+  }
+
+  pct = Math.max(0, Math.min(100, Math.round(pct)));
 
   const arco = $("arco");
 
+  arco.style.strokeDasharray = "251.3";
   arco.style.strokeDashoffset = 251.3 * (1 - pct / 100);
-
-  arco.style.stroke =
-    pct < 70 ? "#1d8bf1" :
-    pct < 90 ? "#f59e0b" :
-    "#ef4444";
+  arco.style.stroke = cor;
 
   $("p-pct").textContent = pct + "%";
-  $("p-pressao").textContent = pressao.toFixed(3) + " MPa";
-  $("p-hora").textContent = new Date().toLocaleTimeString("pt-BR");
+
+  // A API atual fornece tensão, não pressão em MPa.
+  $("p-pressao").textContent = tensao.toFixed(2) + " V";
+
+  $("p-hora").textContent =
+    new Date().toLocaleTimeString("pt-BR");
 
   const status = $("p-status");
 
-  status.textContent = real ? "Conectada" : "Simulação";
-  status.classList.toggle("sim", !real);
+  status.textContent = estado;
+  status.classList.toggle("sim", estado !== "Normal");
+
+  console.log(
+    `Tensão: ${tensao.toFixed(2)} V | Estado: ${estado} | Velocímetro: ${pct}%`
+  );
 }
 
-// Inicia carregando os dados do banco.
+/* ===== INICIAR A APLICAÇÃO ===== */
+
 carregarValvulas();
