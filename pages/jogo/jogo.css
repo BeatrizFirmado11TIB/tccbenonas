@@ -220,20 +220,50 @@ html.dark .theme-btn .icon-moon{display:block}
 .shot-card h3{font-size:12.5px;font-weight:700;color:#fff;margin-bottom:6px}
 .shot-card p{font-size:10.5px;line-height:1.6;color:#94a3b8}
 
+/* ===== CARD DO VÍDEO & PLAYER ===== */
 .video-card{
   max-width:760px;margin:34px auto 0;text-align:center;
   background:var(--card-dark);border-radius:14px;
+  position:relative;overflow:hidden;
+  box-shadow:0 14px 30px rgba(15,23,42,.2);
+}
+.video-cover{
   padding:74px 32px;
+  cursor:pointer;
+  transition:background-color .2s ease;
+}
+.video-cover:hover{
+  background:rgba(255,255,255,0.02);
 }
 .play-btn{
   width:52px;height:52px;border-radius:50%;margin:0 auto 20px;
-  background:rgba(168,85,247,.18);display:grid;place-items:center;
+  background:rgba(168,85,247,.18);border:none;display:grid;place-items:center;
+  cursor:pointer;transition:transform .2s ease,background-color .2s ease;
+}
+.play-btn:hover,
+.video-cover:hover .play-btn{
+  transform:scale(1.1);
+  background:rgba(168,85,247,.32);
 }
 .video-card h3{font-size:16px;font-weight:700;color:#fff}
-.video-card > p{font-size:11.5px;color:#94a3b8;margin-top:8px}
+.video-card p{font-size:11.5px;color:#94a3b8;margin-top:8px}
 .video-chip{
   display:inline-block;margin-top:22px;padding:8px 18px;border-radius:999px;
   border:1px solid rgba(192,132,252,.5);color:#d8b4fe;font-size:11px;
+}
+.video-player{
+  display:none;
+  width:100%;
+  aspect-ratio:16 / 9;
+  border-radius:14px;
+  background:#000;
+  outline:none;
+}
+.video-card.playing .video-cover{
+  display:none;
+}
+.video-card.playing .video-player{
+  display:block;
 }
 
 .cta{
@@ -321,5 +351,5 @@ html.dark .theme-btn .icon-moon{display:block}
   .hero h1{font-size:29px}
   .section-title{font-size:21px}
   .story-card{padding:24px 20px}
-  .video-card{padding:48px 20px}
+  .video-cover{padding:48px 20px}
 }

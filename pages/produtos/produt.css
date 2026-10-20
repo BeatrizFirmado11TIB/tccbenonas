@@ -172,7 +172,7 @@ html.dark .feat-icon.purple{background:#2c1f45;color:#d8b4fe}
 .feature-list div span{display:block;font-size:13px;color:var(--muted);margin-top:2px}
 .device-image{
   height:340px;border-radius:14px;
-  background:url("img/dispositivo.jpg") center/cover no-repeat,linear-gradient(160deg,#101f3c,#0b1730);
+  background:url("/pages/imagens/Rectangle\ 27.png") center/cover no-repeat,linear-gradient(160deg,#101f3c,#0b1730);
 }
 
 .components{background:var(--bg-section);padding:70px 0}
@@ -187,10 +187,10 @@ html.dark .feat-icon.purple{background:#2c1f45;color:#d8b4fe}
 .img-sensor{background-image:url("/pages/imagens/image\ 19.png")}
 .img-esp32{background-image:url("/pages/imagens/image\ 18.png")}
 .img-leds{background-image:url("/pages/imagens/image\ 17.png")}
-.img-fonte{background-image:url("/pages/imagens/image\ 16.png")}
+.img-fonte{background-image:url("/pages/imagens/image\ 16 (1).png")}
 .img-cabos{background-image:url("/pages/imagens/image\ 15.png")}
 .img-proto{background-image:url("/pages/imagens/image\ 14.png")}
-.img-bomba{background-image:url("/pages/imagens/image\ 13.png")}
+.img-bomba{background-image:url("/pages/imagens/image\ 13 (1).png")}
 .img-lcd{background-image:url("/pages/imagens/image\ 12.png")}
 .img-buzzer{background-image:url("/pages/imagens/image\ 11.png")}
 .card-body{padding:14px 16px 16px}
